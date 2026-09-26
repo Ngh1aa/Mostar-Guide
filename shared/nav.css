@@ -1,0 +1,85 @@
+.site-header {
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr);
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+  color: rgba(253, 241, 225, 0.86);
+  pointer-events: auto;
+}
+
+.site-logo {
+  justify-self: start;
+  color: rgba(253, 241, 225, 0.92);
+  font-family: "Ogg Medium", serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: clamp(24px, 2.2vw, 44px);
+}
+
+.site-nav a,
+.language-switcher {
+  color: rgba(253, 241, 225, 0.86);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+}
+
+.site-nav a {
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.language-switcher {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.language-switcher span {
+  display: inline-flex;
+  line-height: 1;
+}
+
+.site-header--static {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(11, 17, 16, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(253, 241, 225, 0.12);
+}
+
+.site-nav a:focus-visible,
+.site-logo:focus-visible,
+.language-switcher:focus-visible {
+  outline: 2px solid #fdf1e1;
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .site-header { grid-template-columns: 1fr auto; gap: 18px; padding: 24px; }
+  .site-nav { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; gap: 18px; overflow-x: auto; scrollbar-width: none; }
+  .site-nav::-webkit-scrollbar { display: none; }
+}

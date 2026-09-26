@@ -1,0 +1,13 @@
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 28px clamp(24px, 5vw, 76px) 36px;
+  border-top: 1px solid rgba(253, 241, 225, 0.16);
+  color: rgba(253, 241, 225, 0.72);
+  font-size: 14px;
+}
+.site-footer a { color: #fdf1e1; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.site-footer a:focus-visible { outline: 2px solid #fdf1e1; outline-offset: 5px; }
+@media (max-width: 640px) { .site-footer { align-items: flex-start; flex-direction: column; } }
