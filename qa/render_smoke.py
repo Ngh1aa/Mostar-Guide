@@ -53,6 +53,13 @@ def run_home(browser) -> None:
             visibility = page.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--sights-visibility').trim()")
             assert visibility == "visible", f"sights slider should be visible, got {visibility!r}"
 
+    # Controls intentionally finish their own entrance later than the slider cards.
+    # The immutable core only adds `.is-ready` after sightsControlsEnter > 0.98,
+    # which occurs at the end of the 3360–3660 segment. Test the click there.
+    page.evaluate("window.scrollTo(0, 3680)")
+    page.wait_for_timeout(900)
+    assert page.locator(".sights-controls.is-ready").count() == 1, "slider controls should be interactive after 3660px"
+
     before = page.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--sights-shift').trim()")
     page.locator(".sight-next").click()
     page.wait_for_timeout(120)
