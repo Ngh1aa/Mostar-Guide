@@ -75,6 +75,7 @@ def run_home(browser) -> None:
         elif name == "river":
             wait_for_css_number(page, "--panel3-opacity", 0.8, "river panel opacity")
         elif name == "places":
+            wait_for_css_number(page, "--sights-opacity", 0.95, "places entrance opacity")
             page.wait_for_function(
                 "() => getComputedStyle(document.documentElement).getPropertyValue('--sights-visibility').trim() === 'visible'",
                 timeout=4000,
@@ -132,6 +133,13 @@ def run_routes(browser) -> None:
     assert "routes.js" in scripts
     assert "script.js" not in scripts, "routes page must remain isolated from cinematic engine"
 
+    # Trigger every IntersectionObserver reveal before the full-page evidence shot.
+    reveals = page.locator(".reveal")
+    for index in range(reveals.count()):
+        reveals.nth(index).scroll_into_view_if_needed()
+        page.wait_for_timeout(180)
+    page.evaluate("window.scrollTo(0, 0)")
+    page.wait_for_timeout(240)
     page.screenshot(path=str(ARTIFACTS / "routes-desktop.png"), full_page=True)
 
     if page_errors:
