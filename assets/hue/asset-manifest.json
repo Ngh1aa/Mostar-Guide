@@ -167,7 +167,7 @@
         1080
       ],
       "mode": "RGBA",
-      "sha256": "73c537a577a7a8177e291464d534366abb2224723760c85c5e15437ad2715551"
+      "sha256": "506a2c44e79019790fb9fd89c15c0e118e2c212d724f996b9a047d3cd34c8426"
     },
     {
       "path": "scenes/07-beyond-walls.webp",
@@ -298,7 +298,7 @@
         1376
       ],
       "mode": "RGB",
-      "sha256": "6505c8715bb290ae9961ffa278c6cae05677b51093f87dac4e1eae5cdb8c3d2b"
+      "sha256": "7412b93508fcdc64ab3082753718d497208a2cfb18d49349e624fab60058901b"
     }
   ]
 }
