@@ -1,8 +1,8 @@
 (() => {
   const stops = new Map([
     ["#cinema", 0],
-    ["#bridge", 900],
-    ["#bazaar", 2140],
+    ["#citadel", 900],
+    ["#river", 2140],
   ]);
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
