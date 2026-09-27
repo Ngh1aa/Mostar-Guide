@@ -88,13 +88,13 @@ They are not official Huế tourism or heritage-centre assets.
 ### `scenes/04-imperial-left.webp`
 
 - **Source IDs:** A01
-- **Transformation:** left architectural door crop with one-edge feather for split-frame choreography
+- **Transformation:** registered left half of one shared Ngọ Môn full-frame crop; centre-edge feather only; reconstructs a single scene with 05 before split motion
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/05-imperial-right.webp`
 
 - **Source IDs:** A01
-- **Transformation:** right architectural door crop with one-edge feather for split-frame choreography
+- **Transformation:** registered right half of one shared Ngọ Môn full-frame crop; centre-edge feather only; reconstructs a single scene with 04 before split motion
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/06-river-transition.webp`
@@ -160,7 +160,7 @@ They are not official Huế tourism or heritage-centre assets.
 ### `previews/scene-contact-sheet.webp`
 
 - **Source IDs:** DERIVED_SCENES
-- **Transformation:** visual-veto contact sheet of seven scene outputs plus combined split-pair preview
+- **Transformation:** visual-veto contact sheet of seven scene outputs plus aligned 04+05 split-pair preview
 - **Output:** 1032 × 1376 · RGB
 
 ## Local SVG marker system

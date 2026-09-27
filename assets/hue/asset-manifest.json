@@ -1,7 +1,7 @@
 {
   "project": "HUẾ — Between River & Citadel",
   "source_policy": "Wikimedia Commons provenance; no Mostar scene media",
-  "visual_veto_revision": "v4",
+  "visual_veto_revision": "v5",
   "canvas": [
     1920,
     1080
@@ -135,26 +135,26 @@
       "sources": [
         "A01"
       ],
-      "changes": "left architectural door crop with one-edge feather for split-frame choreography",
+      "changes": "registered left half of one shared Ngọ Môn full-frame crop; centre-edge feather only; reconstructs a single scene with 05 before split motion",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "891fa5646e407dd101ff28d736fb12fa1ae1d561be557be3b7b3142de37f5a5b"
+      "sha256": "b7fe14acddb2bb239e40a12519bfc14b06ee99952b293b32d100528d02875f15"
     },
     {
       "path": "scenes/05-imperial-right.webp",
       "sources": [
         "A01"
       ],
-      "changes": "right architectural door crop with one-edge feather for split-frame choreography",
+      "changes": "registered right half of one shared Ngọ Môn full-frame crop; centre-edge feather only; reconstructs a single scene with 04 before split motion",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "be839c643ced9048b35565c368cbfa09dd87203959892a76286fc532e496be92"
+      "sha256": "12fe5464547c5b583a9a952ac8f777ce73fba3e9f03d0e43191a0683f90b61d2"
     },
     {
       "path": "scenes/06-river-transition.webp",
@@ -292,13 +292,13 @@
       "sources": [
         "DERIVED_SCENES"
       ],
-      "changes": "visual-veto contact sheet of seven scene outputs plus combined split-pair preview",
+      "changes": "visual-veto contact sheet of seven scene outputs plus aligned 04+05 split-pair preview",
       "size": [
         1032,
         1376
       ],
       "mode": "RGB",
-      "sha256": "a6fe5f934ab8440af9a625adf48cf03e9fc71d3a639ff42900c16fa19780dabc"
+      "sha256": "c83424d5db52013d5b7b0c90411585e4c3487bf25d8f8b7f496cf9baed2bc708"
     }
   ]
 }
