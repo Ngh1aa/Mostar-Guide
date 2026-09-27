@@ -3,14 +3,22 @@
  * This file adapts approved media geometry without changing script.js math.
  */
 
-/* The split assets support the first transition; they should not ghost the intro hero. */
+/*
+ * The split pair is supporting architecture, not a second full hero.
+ * Keep the original frame-2 timing but soften its visual weight so the
+ * central Imperial City backdrop remains the chapter anchor.
+ */
 .splitframe-img {
-  opacity: var(--frame2-opacity);
+  opacity: calc(var(--frame2-opacity) * 0.62);
 }
 
-/* The Imperial Threshold leads the first chapters, then yields to the places layer. */
+/*
+ * The keyed Imperial Threshold belongs to the arrival/intro beat.
+ * Fade it with the authored hero instead of carrying the same Ngọ Môn
+ * photograph into later chapters, which previously created visible repetition.
+ */
 .bridge-img {
-  opacity: calc(1 - var(--sights-opacity));
+  opacity: var(--title-opacity);
 }
 
 /* Keep the authored HUẾ wordmark legible while architecture still passes in front later. */
