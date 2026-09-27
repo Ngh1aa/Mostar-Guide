@@ -6,6 +6,7 @@ on:
       - research/hue-visual-system
     paths:
       - "tools/build_hue_assets.py"
+      - "tools/build_hue_assets_ci.py"
       - "docs/uiux/HUE-ASSET-REPLACEMENT-MATRIX.md"
       - ".github/workflows/build-hue-assets.yml"
   workflow_dispatch:
@@ -34,7 +35,7 @@ jobs:
         run: python -m pip install --upgrade pillow requests
 
       - name: Build local Huế source masters and derivatives
-        run: python tools/build_hue_assets.py
+        run: python tools/build_hue_assets_ci.py
 
       - name: Validate output contract
         shell: bash
