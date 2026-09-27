@@ -60,6 +60,71 @@
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.52) !important;
 }
 
+/*
+ * Desktop repair pass — Intro + Citadel only.
+ *
+ * 1) The approved threshold source is an inset photographic plate. On desktop
+ *    its alpha edges were still reading as a large translucent rectangle over
+ *    the river. Feather all four plate edges so the architecture dissolves into
+ *    the atmospheric opener instead of exposing its raster canvas.
+ *
+ * 2) At the 900px Citadel checkpoint, the registered split pair and the full
+ *    Citadel backdrop were all legible at once, so Ngọ Môn appeared three times.
+ *    The full-frame backdrop now owns that chapter on desktop. The split math is
+ *    still preserved in script.js; only its visual participation is suppressed
+ *    for this composition.
+ *
+ * This scope intentionally leaves River / Places / Routes / mobile rules alone.
+ */
+@media (min-width: 1101px) {
+  .bridge-img {
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        transparent 2%,
+        rgba(0, 0, 0, 0.34) 9%,
+        #000 20%,
+        #000 84%,
+        rgba(0, 0, 0, 0.68) 91%,
+        transparent 98%
+      ),
+      linear-gradient(
+        to right,
+        transparent 2%,
+        rgba(0, 0, 0, 0.55) 8%,
+        #000 15%,
+        #000 85%,
+        rgba(0, 0, 0, 0.55) 92%,
+        transparent 98%
+      );
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(
+        to bottom,
+        transparent 2%,
+        rgba(0, 0, 0, 0.34) 9%,
+        #000 20%,
+        #000 84%,
+        rgba(0, 0, 0, 0.68) 91%,
+        transparent 98%
+      ),
+      linear-gradient(
+        to right,
+        transparent 2%,
+        rgba(0, 0, 0, 0.55) 8%,
+        #000 15%,
+        #000 85%,
+        rgba(0, 0, 0, 0.55) 92%,
+        transparent 98%
+      );
+    mask-composite: intersect;
+  }
+
+  .splitframe-img {
+    opacity: 0;
+  }
+}
+
 @media (max-width: 640px) {
   .hero-title {
     font-size: clamp(7.2rem, 34vw, 10rem);
