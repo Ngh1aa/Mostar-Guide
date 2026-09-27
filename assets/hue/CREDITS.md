@@ -82,19 +82,19 @@ They are not official Huế tourism or heritage-centre assets.
 ### `scenes/03-ngo-mon-threshold.webp`
 
 - **Source IDs:** A01
-- **Transformation:** 1600×900 inset architectural portal; narrow edge feather; subtle threshold rules; transparent outer canvas
+- **Transformation:** centered Ngọ Môn architectural portal; bright low-saturation sky keyed to alpha; restrained edge feather for cinematic layering
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/04-imperial-left.webp`
 
 - **Source IDs:** A01
-- **Transformation:** registered left half of one shared Ngọ Môn full-frame crop; centre-edge feather only; reconstructs a single scene with 05 before split motion
+- **Transformation:** registered left half of shared Ngọ Môn crop; bright neutral sky keyed to alpha; centre-edge feather only
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/05-imperial-right.webp`
 
 - **Source IDs:** A01
-- **Transformation:** registered right half of one shared Ngọ Môn full-frame crop; centre-edge feather only; reconstructs a single scene with 04 before split motion
+- **Transformation:** registered right half of shared Ngọ Môn crop; bright neutral sky keyed to alpha; centre-edge feather only
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/06-river-transition.webp`
@@ -160,7 +160,7 @@ They are not official Huế tourism or heritage-centre assets.
 ### `previews/scene-contact-sheet.webp`
 
 - **Source IDs:** DERIVED_SCENES
-- **Transformation:** visual-veto contact sheet of seven scene outputs plus aligned 04+05 split-pair preview
+- **Transformation:** render-integration contact sheet; seven scene outputs plus keyed 04+05 split-pair proof
 - **Output:** 1032 × 1376 · RGB
 
 ## Local SVG marker system
