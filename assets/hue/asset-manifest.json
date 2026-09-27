@@ -1,6 +1,7 @@
 {
   "project": "HUẾ — Between River & Citadel",
   "source_policy": "Wikimedia Commons provenance; no Mostar scene media",
+  "visual_veto_revision": "v4",
   "canvas": [
     1920,
     1080
@@ -15,7 +16,7 @@
       "page_url": "https://commons.wikimedia.org/wiki/File:The_grand_entrance_complex_to_the_Imperial_Citadel_(31801617815).jpg",
       "download_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/The_grand_entrance_complex_to_the_Imperial_Citadel_%2831801617815%29.jpg",
       "role": "Imperial Threshold / frontal Ngọ Môn grand-entrance composition",
-      "note": "Selected after visual veto because the previous close gate crop did not read strongly enough as the project signature.",
+      "note": "Selected after visual veto because the earlier close gate crop did not read strongly enough as the project signature.",
       "local_path": "assets/hue/source/ngo-mon.jpg",
       "pixels": [
         2560,
@@ -48,7 +49,7 @@
       "page_url": "https://commons.wikimedia.org/wiki/File:Truong_Tien_Bridge.jpg",
       "download_url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Truong_Tien_Bridge.jpg",
       "role": "River crossing / reflection / horizontal connective geometry",
-      "note": "Re-selected during visual veto to remove traffic-heavy literal imagery and strengthen the river-as-spine art direction.",
+      "note": "Selected for a full-frame river transition rather than a ghosted bridge composite.",
       "local_path": "assets/hue/source/truong-tien.jpg",
       "pixels": [
         985,
@@ -95,79 +96,78 @@
       "sources": [
         "A02"
       ],
-      "changes": "cover crop; low-contrast river grade; subtle blur/mist; dark lower gradient",
+      "changes": "river crop with increased spatial clarity; restrained mist; cool Huế grade; subtle lower atmospheric density",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "21ed12e8e8b4a4a5cf8936dac8ebd9bd2991b599ff13b99e442392960ffeaf8d"
+      "sha256": "6655cc690aef3630e4b86e5d99c28bf39e94bffd92e7b4b252757d61de3c8c9e"
     },
     {
       "path": "scenes/02-citadel-backdrop.webp",
       "sources": [
         "A01"
       ],
-      "changes": "wide architectural crop; subdued imperial grade; top/bottom atmospheric density",
+      "changes": "frontal architectural establishing crop; improved stone/roof readability; restrained imperial warmth",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "a78d064d673dfd69edf5bea6a8d93cb7b535e1278199c023b653f316c1bc11d8"
+      "sha256": "4063656915a32e2ddfffc57939d68d68214df9bddff673aa00c6b47a959d6c80"
     },
     {
       "path": "scenes/03-ngo-mon-threshold.webp",
       "sources": [
         "A01"
       ],
-      "changes": "central architectural crop; warm grade; soft alpha window for layered threshold reveal",
+      "changes": "1600×900 inset architectural portal; narrow edge feather; subtle threshold rules; transparent outer canvas",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "f56c090b04d2edae7668b1d5aaa196fd93985b65af248f11f8b6827e9bc56317"
+      "sha256": "1c1742bc119fe1404c04dd1fc73b0b02a7683f4f76856a5a58ac97d3b7e788d7"
     },
     {
       "path": "scenes/04-imperial-left.webp",
       "sources": [
         "A01"
       ],
-      "changes": "left architectural crop; translucent feather mask for split-frame choreography",
+      "changes": "left architectural door crop with one-edge feather for split-frame choreography",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "c0aa21956f4c9ba604a36ee3265f7d2691426e99df8db379ecac4c014bde470f"
+      "sha256": "891fa5646e407dd101ff28d736fb12fa1ae1d561be557be3b7b3142de37f5a5b"
     },
     {
       "path": "scenes/05-imperial-right.webp",
       "sources": [
         "A01"
       ],
-      "changes": "right architectural crop; translucent feather mask for split-frame choreography",
+      "changes": "right architectural door crop with one-edge feather for split-frame choreography",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "db54a50bf81229b5b3b1964fa293234bb518e6c489d43592bbb1f1b982ec0dd0"
+      "sha256": "be839c643ced9048b35565c368cbfa09dd87203959892a76286fc532e496be92"
     },
     {
       "path": "scenes/06-river-transition.webp",
       "sources": [
-        "A02",
         "A03"
       ],
-      "changes": "Perfume River base + Trường Tiền bridge crossfade band; river-line accent; unified cool grade",
+      "changes": "full-frame Trường Tiền river-crossing scene; unified cool grade; River Line navigation signature; no pasted-photo band",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "506a2c44e79019790fb9fd89c15c0e118e2c212d724f996b9a047d3cd34c8426"
+      "sha256": "571c0b1522ca5ae20c3e0bfaa26f49cea73af1e02b51cad2bcb076244ee616ac"
     },
     {
       "path": "scenes/07-beyond-walls.webp",
@@ -175,13 +175,13 @@
         "A04",
         "A05"
       ],
-      "changes": "Khải Định + Đông Ba diagonal soft composite; heritage/living-city contrast; dark cinematic grade",
+      "changes": "editorial diptych on dark field: Khải Định heritage panel + Đông Ba living-city panel; no diagonal double exposure",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "6e261c3f1ad07aea297418fbe83f1bb23bdd17915cc03c699567a3c4161f4ea6"
+      "sha256": "a5769f428502bf17b4b6be21cd76f2521cee4e38c8beca669b773090f7b7a828"
     },
     {
       "path": "cards/ngo-mon.webp",
@@ -220,7 +220,7 @@
         640
       ],
       "mode": "RGB",
-      "sha256": "aeaea555b8de3f8c2a8faac90920db833e96036fcf48fe2e601a7931dc1e2ced"
+      "sha256": "d0030662f9abca1c3e08dade6653df2ada92706637233ca8f82b6af33cc8e943"
     },
     {
       "path": "cards/khai-dinh.webp",
@@ -292,13 +292,13 @@
       "sources": [
         "DERIVED_SCENES"
       ],
-      "changes": "visual-review contact sheet of all seven generated scene outputs",
+      "changes": "visual-veto contact sheet of seven scene outputs plus combined split-pair preview",
       "size": [
         1032,
         1376
       ],
       "mode": "RGB",
-      "sha256": "7412b93508fcdc64ab3082753718d497208a2cfb18d49349e624fab60058901b"
+      "sha256": "a6fe5f934ab8440af9a625adf48cf03e9fc71d3a639ff42900c16fa19780dabc"
     }
   ]
 }
