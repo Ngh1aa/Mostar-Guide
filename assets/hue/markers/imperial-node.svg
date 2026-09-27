@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="Huế route marker 02">
+  <path d="M8 80H88" stroke="#F1E9D6" stroke-opacity=".42"/>
+  <rect x="17" y="17" width="46" height="46" rx="3" fill="none" stroke="#D3B165" stroke-width="1.5"/><path d="M17 51h46" stroke="#D3B165" stroke-width="1.5"/>
+  <text x="78" y="22" text-anchor="end" fill="#F1E9D6" font-family="Arial, sans-serif" font-size="11" letter-spacing="1">02</text>
+</svg>

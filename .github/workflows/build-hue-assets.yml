@@ -1,0 +1,79 @@
+name: Build Huế Production Assets
+
+on:
+  push:
+    branches:
+      - research/hue-visual-system
+    paths:
+      - "tools/build_hue_assets.py"
+      - "tools/build_hue_assets_ci.py"
+      - "docs/uiux/HUE-ASSET-REPLACEMENT-MATRIX.md"
+      - ".github/workflows/build-hue-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-assets:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: research/hue-visual-system
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install asset tooling
+        run: python -m pip install --upgrade pillow requests
+
+      - name: Build local Huế source masters and derivatives
+        run: python tools/build_hue_assets_ci.py
+
+      - name: Validate output contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f assets/hue/CREDITS.md
+          test -f assets/hue/asset-manifest.json
+          test "$(find assets/hue/scenes -maxdepth 1 -name '*.webp' | wc -l)" -eq 7
+          test "$(find assets/hue/cards -maxdepth 1 -name '*.webp' | wc -l)" -eq 5
+          test "$(find assets/hue/markers -maxdepth 1 -name '*.svg' | wc -l)" -eq 3
+          test -f assets/hue/previews/scene-contact-sheet.webp
+          ! grep -RIlE 'raft-blast-61784561|d8j0ntlcm91z4' assets/hue || exit 1
+          du -sh assets/hue
+
+      - name: Upload visual-veto package
+        uses: actions/upload-artifact@v4
+        with:
+          name: hue-visual-veto
+          path: |
+            assets/hue/previews/scene-contact-sheet.webp
+            assets/hue/scenes/*.webp
+            assets/hue/cards/*.webp
+            assets/hue/markers/*.svg
+            assets/hue/CREDITS.md
+            assets/hue/asset-manifest.json
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Commit generated production assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/hue
+          if git diff --cached --quiet; then
+            echo "No asset changes to commit."
+            exit 0
+          fi
+          git commit -m "assets: generate local Hue production media [skip hue-assets]"
+          git push origin HEAD:research/hue-visual-system

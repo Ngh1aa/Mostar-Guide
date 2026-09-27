@@ -1,0 +1,304 @@
+{
+  "project": "HUẾ — Between River & Citadel",
+  "source_policy": "Wikimedia Commons provenance; no Mostar scene media",
+  "canvas": [
+    1920,
+    1080
+  ],
+  "sources": {
+    "A01": {
+      "slug": "ngo-mon",
+      "title": "The grand entrance complex to the Imperial Citadel (31801617815).jpg",
+      "author": "shankar s.",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "page_url": "https://commons.wikimedia.org/wiki/File:The_grand_entrance_complex_to_the_Imperial_Citadel_(31801617815).jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/The_grand_entrance_complex_to_the_Imperial_Citadel_%2831801617815%29.jpg",
+      "role": "Imperial Threshold / frontal Ngọ Môn grand-entrance composition",
+      "note": "Selected after visual veto because the previous close gate crop did not read strongly enough as the project signature.",
+      "local_path": "assets/hue/source/ngo-mon.jpg",
+      "pixels": [
+        2560,
+        1707
+      ],
+      "sha256": "77cec451c36b623ce0f415d070b83e40d707a9d6dac6bfaa31290e4e1674053c"
+    },
+    "A02": {
+      "slug": "perfume-river",
+      "title": "Riviere des Parfums Hue.jpg",
+      "author": "Lưu Ly",
+      "license": "Public Domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Riviere_des_Parfums_Hue.jpg",
+      "page_url": "https://commons.wikimedia.org/wiki/File:Riviere_des_Parfums_Hue.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Riviere_des_Parfums_Hue.jpg",
+      "role": "Perfume River atmosphere / depth base",
+      "local_path": "assets/hue/source/perfume-river.jpg",
+      "pixels": [
+        1936,
+        1288
+      ],
+      "sha256": "ab6cbaf60aa94243e1e4d67b3bf48998ac4e15235eb7193710709072c7f433fb"
+    },
+    "A03": {
+      "slug": "truong-tien",
+      "title": "Truong Tien Bridge.jpg",
+      "author": "Lưu Ly",
+      "license": "Public Domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Truong_Tien_Bridge.jpg",
+      "page_url": "https://commons.wikimedia.org/wiki/File:Truong_Tien_Bridge.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Truong_Tien_Bridge.jpg",
+      "role": "River crossing / reflection / horizontal connective geometry",
+      "note": "Re-selected during visual veto to remove traffic-heavy literal imagery and strengthen the river-as-spine art direction.",
+      "local_path": "assets/hue/source/truong-tien.jpg",
+      "pixels": [
+        985,
+        658
+      ],
+      "sha256": "48ce4eac2c7ead11ccdcc1783ea57faa8ef980fca5d5848cf96d97453f0b0846"
+    },
+    "A04": {
+      "slug": "khai-dinh",
+      "title": "Khai Dinh tomb Hue (27767136409).jpg",
+      "author": "dronepicr",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "page_url": "https://commons.wikimedia.org/wiki/File:Khai_Dinh_tomb_Hue_(27767136409).jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Khai_Dinh_tomb_Hue_%2827767136409%29.jpg",
+      "role": "Beyond the Walls / royal landscape texture",
+      "local_path": "assets/hue/source/khai-dinh.jpg",
+      "pixels": [
+        2560,
+        1707
+      ],
+      "sha256": "543d3768acb670716514d36064e1037c30ce956c22c2806ab849c99b5b8a0ec5"
+    },
+    "A05": {
+      "slug": "dong-ba",
+      "title": "Dong Ba market, Thành phố Huế, Vietnam (Unsplash).jpg",
+      "author": "Alice Young",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "page_url": "https://commons.wikimedia.org/wiki/File:Dong_Ba_market,_Th%C3%A0nh_ph%E1%BB%91_Hu%E1%BA%BF,_Vietnam_(Unsplash).jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Dong_Ba_market%2C_Th%C3%A0nh_ph%E1%BB%91_Hu%E1%BA%BF%2C_Vietnam_%28Unsplash%29.jpg",
+      "role": "Living city / market colour and texture",
+      "local_path": "assets/hue/source/dong-ba.jpg",
+      "pixels": [
+        2560,
+        1707
+      ],
+      "sha256": "3a9bbbb8511ff4d7d1a685f44857fff0b000e8c25889ce54c8a0b3805950509a"
+    }
+  },
+  "generated": [
+    {
+      "path": "scenes/01-river-atmosphere.webp",
+      "sources": [
+        "A02"
+      ],
+      "changes": "cover crop; low-contrast river grade; subtle blur/mist; dark lower gradient",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGBA",
+      "sha256": "21ed12e8e8b4a4a5cf8936dac8ebd9bd2991b599ff13b99e442392960ffeaf8d"
+    },
+    {
+      "path": "scenes/02-citadel-backdrop.webp",
+      "sources": [
+        "A01"
+      ],
+      "changes": "wide architectural crop; subdued imperial grade; top/bottom atmospheric density",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGBA",
+      "sha256": "a78d064d673dfd69edf5bea6a8d93cb7b535e1278199c023b653f316c1bc11d8"
+    },
+    {
+      "path": "scenes/03-ngo-mon-threshold.webp",
+      "sources": [
+        "A01"
+      ],
+      "changes": "central architectural crop; warm grade; soft alpha window for layered threshold reveal",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGBA",
+      "sha256": "f56c090b04d2edae7668b1d5aaa196fd93985b65af248f11f8b6827e9bc56317"
+    },
+    {
+      "path": "scenes/04-imperial-left.webp",
+      "sources": [
+        "A01"
+      ],
+      "changes": "left architectural crop; translucent feather mask for split-frame choreography",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGBA",
+      "sha256": "c0aa21956f4c9ba604a36ee3265f7d2691426e99df8db379ecac4c014bde470f"
+    },
+    {
+      "path": "scenes/05-imperial-right.webp",
+      "sources": [
+        "A01"
+      ],
+      "changes": "right architectural crop; translucent feather mask for split-frame choreography",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGBA",
+      "sha256": "db54a50bf81229b5b3b1964fa293234bb518e6c489d43592bbb1f1b982ec0dd0"
+    },
+    {
+      "path": "scenes/06-river-transition.webp",
+      "sources": [
+        "A02",
+        "A03"
+      ],
+      "changes": "Perfume River base + Trường Tiền bridge crossfade band; river-line accent; unified cool grade",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGBA",
+      "sha256": "506a2c44e79019790fb9fd89c15c0e118e2c212d724f996b9a047d3cd34c8426"
+    },
+    {
+      "path": "scenes/07-beyond-walls.webp",
+      "sources": [
+        "A04",
+        "A05"
+      ],
+      "changes": "Khải Định + Đông Ba diagonal soft composite; heritage/living-city contrast; dark cinematic grade",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGBA",
+      "sha256": "6e261c3f1ad07aea297418fbe83f1bb23bdd17915cc03c699567a3c4161f4ea6"
+    },
+    {
+      "path": "cards/ngo-mon.webp",
+      "sources": [
+        "A01"
+      ],
+      "changes": "960×640 editorial card crop; unified Huế grade",
+      "size": [
+        960,
+        640
+      ],
+      "mode": "RGB",
+      "sha256": "ef9218d617a129ca824a3974e11c464e51dc7ca361f49d9b493719ddfa9ca7dd"
+    },
+    {
+      "path": "cards/perfume-river.webp",
+      "sources": [
+        "A02"
+      ],
+      "changes": "960×640 editorial card crop; unified Huế grade",
+      "size": [
+        960,
+        640
+      ],
+      "mode": "RGB",
+      "sha256": "c2a043fd83612f3df85c574e18252286c594c17b1a3ce5fc153bfe756d81e553"
+    },
+    {
+      "path": "cards/truong-tien.webp",
+      "sources": [
+        "A03"
+      ],
+      "changes": "960×640 editorial card crop; unified Huế grade",
+      "size": [
+        960,
+        640
+      ],
+      "mode": "RGB",
+      "sha256": "aeaea555b8de3f8c2a8faac90920db833e96036fcf48fe2e601a7931dc1e2ced"
+    },
+    {
+      "path": "cards/khai-dinh.webp",
+      "sources": [
+        "A04"
+      ],
+      "changes": "960×640 editorial card crop; unified Huế grade",
+      "size": [
+        960,
+        640
+      ],
+      "mode": "RGB",
+      "sha256": "625bbdb10f8a68aee83aff596ba5a8cb0f8fed1094f0eedaa0bfca5a5b0bea57"
+    },
+    {
+      "path": "cards/dong-ba.webp",
+      "sources": [
+        "A05"
+      ],
+      "changes": "960×640 editorial card crop; unified Huế grade",
+      "size": [
+        960,
+        640
+      ],
+      "mode": "RGB",
+      "sha256": "a198d36c90637986ad2c0d1ed291a810622ab05affd5376ca89d9340272df4f0"
+    },
+    {
+      "path": "markers/imperial-node.svg",
+      "sources": [
+        "ORIGINAL_PROJECT_GRAPHIC"
+      ],
+      "changes": "original geometric SVG marker; no third-party raster source",
+      "size": [
+        96,
+        96
+      ],
+      "mode": "SVG",
+      "sha256": "b96fb218ed446094467b2d0eba8e2b2b85ec0ee926d947add05566e7446e89b7"
+    },
+    {
+      "path": "markers/legacy-node.svg",
+      "sources": [
+        "ORIGINAL_PROJECT_GRAPHIC"
+      ],
+      "changes": "original geometric SVG marker; no third-party raster source",
+      "size": [
+        96,
+        96
+      ],
+      "mode": "SVG",
+      "sha256": "87f42d65c3abce33b5265c4b27bbda62e5d9c43c117571b374044bafc0608fa6"
+    },
+    {
+      "path": "markers/river-node.svg",
+      "sources": [
+        "ORIGINAL_PROJECT_GRAPHIC"
+      ],
+      "changes": "original geometric SVG marker; no third-party raster source",
+      "size": [
+        96,
+        96
+      ],
+      "mode": "SVG",
+      "sha256": "b5b8900cf73e7ece33a9e09cb3784e48b7342a2399a8e6d840ca8e991374afff"
+    },
+    {
+      "path": "previews/scene-contact-sheet.webp",
+      "sources": [
+        "DERIVED_SCENES"
+      ],
+      "changes": "visual-review contact sheet of all seven generated scene outputs",
+      "size": [
+        1032,
+        1376
+      ],
+      "mode": "RGB",
+      "sha256": "7412b93508fcdc64ab3082753718d497208a2cfb18d49349e624fab60058901b"
+    }
+  ]
+}
