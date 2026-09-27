@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract Huế imperial seal mark</title>
+  <desc id="desc">A modern geometric seal inspired by gates, axes, and courtyard symmetry. It is not a reproduction of a historical royal seal.</desc>
+  <rect x="2" y="2" width="60" height="60" fill="none" stroke="#d3b165" stroke-width="2"/>
+  <rect x="9.5" y="9.5" width="45" height="45" fill="none" stroke="#d3b165" stroke-width="1" opacity="0.72"/>
+  <path d="M32 10v44M10 32h44" fill="none" stroke="#d3b165" stroke-width="1" opacity="0.46"/>
+  <path d="M19 18h26v8h-7v20H26V26h-7z" fill="none" stroke="#d3b165" stroke-width="2" stroke-linejoin="miter"/>
+  <rect x="28.5" y="28.5" width="7" height="7" fill="#8e3027" stroke="#d3b165" stroke-width="1" transform="rotate(45 32 32)"/>
+</svg>
