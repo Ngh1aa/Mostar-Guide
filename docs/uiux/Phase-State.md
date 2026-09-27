@@ -2,7 +2,7 @@
 
 ## Current phase
 
-`PRODUCTION ASSET PREPARATION / VISUAL APPROVAL GATE`
+`VISUAL VETO COMPLETE / READY FOR IMPLEMENTATION`
 
 Branch: `research/hue-visual-system`
 
@@ -47,8 +47,8 @@ Signature system:
 | Record attribution / transformations | DONE_VERIFIED | asset production | `assets/hue/CREDITS.md` |
 | Create visual-review contact sheet | DONE_VERIFIED | asset production | `assets/hue/previews/scene-contact-sheet.webp` |
 | Reject old Mostar scene fingerprints from new asset family | DONE_VERIFIED | asset production | CI grep gate + local-only asset tree |
-| Verify asset build reproducibility | DONE_VERIFIED | asset production | GitHub Actions `Build Huế Production Assets` run #2 PASS |
-| Human visual veto on generated contact sheet | PENDING_FUTURE_PHASE | visual approval | inspect contact sheet / scene crops before UI wiring |
+| Verify asset build reproducibility | DONE_VERIFIED | asset production | GitHub Actions asset workflow PASS |
+| Human visual veto on generated contact sheet | DONE_VERIFIED | visual approval | v3 contact-sheet review + individual scene review |
 | Verify display-font license/glyph coverage | PENDING_FUTURE_PHASE | implementation | font specimen + license source |
 | Implement new Huế content/visual system | PENDING_FUTURE_PHASE | implementation | rendered representative pages |
 | Responsive 390/768/1440 visual QA | PENDING_FUTURE_PHASE | QA | browser screenshots |
@@ -89,13 +89,56 @@ assets/hue/
     └── scene-contact-sheet.webp
 ```
 
+## Visual-veto record
+
+### V1 — REJECTED
+
+Reasons:
+
+- first Ngọ Môn source was too close/generic to carry the Imperial Threshold signature;
+- the contact-sheet preview exposed hidden RGB in alpha scenes as horizontal smear;
+- the Trường Tiền scene relied on a traffic-heavy double exposure;
+- the Khải Định / Đông Ba composite was too muddy and collage-like.
+
+### V2 — CONDITIONAL
+
+Changes:
+
+- switched Ngọ Môn source to the grand entrance complex;
+- fixed alpha-scene preview compositing against the real dark surface;
+- re-selected a river-side public-domain Trường Tiền source;
+- rebuilt `07-beyond-walls.webp` as a clean diagonal editorial split.
+
+Remaining issue:
+
+- Trường Tiền still read too much like a ghosted double exposure.
+
+### V3 — PASS
+
+Changes:
+
+- rebuilt `06-river-transition.webp` as one clean panoramic bridge band over the river chapter;
+- retained the River Line outside the photographic band as a navigation/signature language;
+- reviewed the complete seven-scene contact sheet after alpha compositing.
+
+Visual result:
+
+- `01` establishes mist / river / geographic atmosphere;
+- `02` establishes the imperial architectural mass;
+- `03` is the primary Imperial Threshold reveal;
+- `04` + `05` support split-frame choreography without visual artifacts in rendered compositing;
+- `06` reads as river-first, bridge-second and no longer recreates the Mostar one-bridge-as-city logic;
+- `07` closes the narrative with a deliberate royal-landscape / living-city contrast.
+
+Decision:
+
+`HUMAN VISUAL VETO = PASS`
+
 ## Asset-production evidence
 
-Build workflow:
-
-- workflow: `Build Huế Production Assets`
-- successful run: `36293848436`
-- generated-asset commit: `6cb12cccdca2d30cd6785feb45a4d22b752fa52a`
+- current asset workflow: `Build Huế Production Assets`;
+- final visual-veto asset build: run `36294871943` — PASS;
+- final review artifact: `hue-visual-veto`;
 - source masters are normalized locally to max 2560 px where needed;
 - all seven cinematic scene outputs are 1920×1080;
 - threshold/split scene families retain alpha for layered choreography;
@@ -113,27 +156,18 @@ Build workflow:
 
 ## Evidence limitations
 
-- Asset-generation and structural/media contracts are verified, but the seven-scene contact sheet has not yet received the human visual veto required before UI wiring.
-- The generated crops/composites have not yet been tested inside the live 3700px cinematic choreography; that belongs to the implementation/rendered gate.
+- The new assets have not yet been tested inside the live 3700px cinematic choreography; that belongs to the implementation/rendered gate.
 - Final typography is intentionally not locked until Vietnamese glyph and license verification.
 - Route durations/geographic itineraries are not finalized and must not be invented.
 
 ## Exit result
 
-`ASSET PRODUCTION GATE: PASS`
+`RESEARCH + ASSET + VISUAL VETO GATE: PASS`
 
 Reason:
 
-The approved Huế shortlist has been converted into a local, provenance-documented and reproducible production asset family: source masters, seven cinematic scenes, five editorial cards, three original SVG markers, manifest, credits and review contact sheet. The original Mostar production UI remains untouched.
+The project now has an approved Huế narrative, art-direction contract, local provenance-documented production media, a repeatable asset pipeline, seven visually approved cinematic scenes, five editorial cards and three original SVG markers. The original Mostar production UI is still untouched at the moment of approval.
 
 ## Next gate
 
-Human visual approval of:
-
-1. `assets/hue/previews/scene-contact-sheet.webp`
-2. `assets/hue/scenes/03-ngo-mon-threshold.webp`
-3. `assets/hue/scenes/04-imperial-left.webp` + `05-imperial-right.webp`
-4. `assets/hue/scenes/06-river-transition.webp`
-5. `assets/hue/scenes/07-beyond-walls.webp`
-
-Only after that visual veto should implementation begin on the Huế HTML/CSS/JS transformation.
+Create a separate Huế implementation branch and wire the approved visual system into production while preserving the reusable scroll/slider engineering contract. Implementation must then pass rendered choreography, responsive, accessibility, stale-Mostar-identity and deployment QA before release.
