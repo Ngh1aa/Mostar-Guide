@@ -10,17 +10,23 @@ ARTIFACTS = Path("qa-artifacts")
 ARTIFACTS.mkdir(exist_ok=True)
 
 
-def assert_close(value: float, minimum: float, label: str) -> None:
-    if value < minimum:
-        raise AssertionError(f"{label}: expected >= {minimum}, got {value}")
-
-
 def assert_images_loaded(page, selector: str, label: str) -> None:
     broken = page.locator(selector).evaluate_all(
         "els => els.filter(el => !el.complete || el.naturalWidth === 0).map(el => el.getAttribute('src'))"
     )
     if broken:
         raise AssertionError(f"{label} contains broken images: {broken}")
+
+
+def wait_for_css_number(page, variable: str, minimum: float, label: str) -> None:
+    page.wait_for_function(
+        "([name, threshold]) => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name) || '0') >= threshold",
+        [variable, minimum],
+        timeout=4000,
+    )
+    value = float(page.evaluate("name => getComputedStyle(document.documentElement).getPropertyValue(name) || 0", variable))
+    if value < minimum:
+        raise AssertionError(f"{label}: expected >= {minimum}, got {value}")
 
 
 def run_home(browser) -> None:
@@ -63,22 +69,25 @@ def run_home(browser) -> None:
     ]
     for y, name in checkpoints:
         page.evaluate("y => window.scrollTo(0, y)", y)
-        page.wait_for_timeout(900)
-        page.screenshot(path=str(ARTIFACTS / f"home-{name}.png"), full_page=False)
 
         if name == "citadel":
-            opacity = float(page.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--panel2-opacity') || 0"))
-            assert_close(opacity, 0.8, "citadel panel opacity")
+            wait_for_css_number(page, "--panel2-opacity", 0.8, "citadel panel opacity")
         elif name == "river":
-            opacity = float(page.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--panel3-opacity') || 0"))
-            assert_close(opacity, 0.8, "river panel opacity")
+            wait_for_css_number(page, "--panel3-opacity", 0.8, "river panel opacity")
         elif name == "places":
-            visibility = page.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--sights-visibility').trim()")
-            assert visibility == "visible", f"places slider should be visible, got {visibility!r}"
+            page.wait_for_function(
+                "() => getComputedStyle(document.documentElement).getPropertyValue('--sights-visibility').trim() === 'visible'",
+                timeout=4000,
+            )
+        else:
+            page.wait_for_timeout(350)
+
+        page.wait_for_timeout(180)
+        page.screenshot(path=str(ARTIFACTS / f"home-{name}.png"), full_page=False)
 
     # Controls intentionally finish their own entrance later than the slider cards.
     page.evaluate("window.scrollTo(0, 3680)")
-    page.wait_for_timeout(900)
+    page.wait_for_function("() => document.querySelector('.sights-controls')?.classList.contains('is-ready')", timeout=4000)
     assert page.locator(".sights-controls.is-ready").count() == 1, "slider controls should be interactive after 3660px"
 
     before = page.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--sights-shift').trim()")
