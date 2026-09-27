@@ -1,0 +1,326 @@
+/*
+ * HUẾ — restrained imperial ornament layer
+ *
+ * Decorative only: no layout ownership, no motion timing, no media geometry.
+ * The visual language is abstracted from court axes, thresholds, framed panels,
+ * and seal geometry. It intentionally avoids literal dragons, phoenixes, faux
+ * calligraphy, or historical seal reproduction.
+ */
+
+:root {
+  --ornament-gold: rgba(211, 177, 101, 0.54);
+  --ornament-gold-soft: rgba(211, 177, 101, 0.24);
+  --ornament-gold-faint: rgba(211, 177, 101, 0.12);
+  --ornament-vermilion: #8e3027;
+  --ornament-ivory: rgba(238, 228, 207, 0.82);
+  --ornament-seal: url("assets/hue/ornaments/imperial-seal.svg");
+}
+
+/* A quiet ceremonial frame on large screens only. */
+@media (min-width: 1101px) {
+  body::before {
+    content: "";
+    position: fixed;
+    z-index: 200;
+    inset: 14px;
+    border: 1px solid var(--ornament-gold-faint);
+    box-shadow: inset 0 0 0 1px rgba(8, 17, 15, 0.16);
+    pointer-events: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Header: one hairline axis + a small abstract seal, never a crest/logo.
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: relative;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -15px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--ornament-gold-soft) 12%,
+    var(--ornament-gold) 50%,
+    var(--ornament-gold-soft) 88%,
+    transparent 100%
+  );
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.site-logo::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-left: 3px;
+  flex: 0 0 auto;
+  background: var(--ornament-seal) center / contain no-repeat;
+  opacity: 0.68;
+}
+
+.edition-mark::before {
+  content: "◆";
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--hue-gold, #d3b165);
+  font-size: 6px;
+  line-height: 1;
+  transform: translateY(-1px) rotate(45deg);
+  opacity: 0.78;
+}
+
+/* --------------------------------------------------------------------------
+   Cinematic chapters: ceremonial divider language.
+   -------------------------------------------------------------------------- */
+
+.chapter-mark {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.chapter-mark::before,
+.chapter-mark::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ornament-gold));
+  opacity: 0.8;
+}
+
+.chapter-mark::after {
+  background: linear-gradient(90deg, var(--ornament-gold), transparent);
+}
+
+.story-panel h2::after {
+  content: "";
+  display: block;
+  width: 74px;
+  height: 1px;
+  margin: 20px auto 0;
+  background:
+    linear-gradient(90deg, transparent 0 8px, var(--ornament-gold) 8px 32px, transparent 32px 42px, var(--ornament-gold) 42px 66px, transparent 66px);
+  opacity: 0.64;
+}
+
+.facts div {
+  position: relative;
+}
+
+.facts div::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: var(--ornament-vermilion);
+  outline: 1px solid rgba(211, 177, 101, 0.8);
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+/* Keep the hero taxonomy editorial, adding only a subtle node between terms. */
+.hero-tags span + span {
+  position: relative;
+}
+
+.hero-tags span + span::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--hue-night, #08110f);
+  border: 1px solid rgba(211, 177, 101, 0.64);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* --------------------------------------------------------------------------
+   Places: add a court-frame feel without adding extra card chrome.
+   -------------------------------------------------------------------------- */
+
+.sight-card {
+  outline: 1px solid rgba(211, 177, 101, 0.08);
+  outline-offset: -7px;
+}
+
+.sight-pin {
+  padding: 4px;
+  border: 1px solid rgba(211, 177, 101, 0.22);
+  background: rgba(8, 17, 15, 0.34);
+}
+
+.sight-nav {
+  position: relative;
+}
+
+.sight-nav::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(211, 177, 101, 0.18);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Routes: field-guide ornament, still more archive than palace-theme.
+   -------------------------------------------------------------------------- */
+
+.routes-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.routes-eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: var(--ornament-gold);
+}
+
+.routes-hero h1::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin-top: 22px;
+  background: var(--ornament-seal) center / contain no-repeat;
+  opacity: 0.7;
+}
+
+.route-number {
+  position: relative;
+  padding-left: 22px;
+}
+
+.route-number::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(211, 177, 101, 0.56);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.route-meta div {
+  position: relative;
+}
+
+.route-meta div::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: var(--ornament-vermilion);
+  outline: 1px solid rgba(211, 177, 101, 0.72);
+  transform: rotate(45deg);
+}
+
+.route-note {
+  background-image:
+    linear-gradient(110deg, rgba(142, 48, 39, 0.34), rgba(49, 94, 91, 0.26)),
+    var(--ornament-seal);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, calc(100% - 28px) calc(100% - 22px);
+  background-size: cover, 74px 74px;
+}
+
+.site-footer {
+  position: relative;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(180px, 28vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ornament-gold), transparent);
+  transform: translateX(-50%);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive reduction: ceremonial details should disappear before they crowd.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .site-logo::after {
+    width: 15px;
+    height: 15px;
+  }
+
+  .story-panel h2::after {
+    width: 58px;
+    margin-top: 16px;
+  }
+
+  .routes-hero h1::after {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header::after,
+  .edition-mark::before,
+  .site-logo::after,
+  .hero-tags span + span::before,
+  .story-panel h2::after,
+  .routes-hero h1::after,
+  .route-number::before,
+  .route-meta div::before,
+  .site-footer::before {
+    display: none;
+  }
+
+  .chapter-mark {
+    gap: 8px;
+  }
+
+  .chapter-mark::before,
+  .chapter-mark::after {
+    width: 18px;
+  }
+
+  .route-number {
+    padding-left: 0;
+  }
+
+  .route-note {
+    background-image: linear-gradient(110deg, rgba(142, 48, 39, 0.34), rgba(49, 94, 91, 0.26));
+    background-position: center;
+    background-size: cover;
+  }
+
+  .sight-card {
+    outline-offset: -5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edition-mark::before,
+  .hero-tags span + span::before,
+  .facts div::before,
+  .route-number::before,
+  .route-meta div::before {
+    transform: none;
+  }
+}
