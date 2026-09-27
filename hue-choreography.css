@@ -8,6 +8,11 @@
   opacity: var(--frame2-opacity);
 }
 
+/* The Imperial Threshold leads the first chapters, then yields to the places layer. */
+.bridge-img {
+  opacity: calc(1 - var(--sights-opacity));
+}
+
 /* Keep the authored HUẾ wordmark legible while architecture still passes in front later. */
 .hero-title {
   z-index: 5;
