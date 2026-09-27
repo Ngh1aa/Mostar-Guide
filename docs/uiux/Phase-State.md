@@ -2,11 +2,11 @@
 
 ## Current phase
 
-`PRE-DESIGN RESEARCH / ART DIRECTION`
+`PRODUCTION ASSET PREPARATION / VISUAL APPROVAL GATE`
 
 Branch: `research/hue-visual-system`
 
-No production HTML/CSS/JS has been changed in this phase.
+No production `index.html`, `styles.css`, `script.js`, `routes.html`, `routes.css`, or `routes.js` has been changed in this phase.
 
 ## Current direction
 
@@ -40,13 +40,68 @@ Signature system:
 | Define visual direction | DONE_VERIFIED | research | art-direction contract |
 | Replace current Mostar asset plan | DONE_VERIFIED | research | replacement matrix |
 | Verify source licenses for primary candidates | DONE_VERIFIED | research | Wikimedia Commons file pages |
-| Download/store production media locally | PENDING_FUTURE_PHASE | implementation | repo asset inventory |
-| Produce optimized/cutout scene derivatives | PENDING_FUTURE_PHASE | implementation | visual inspection + media checks |
+| Download/store production media locally | DONE_VERIFIED | asset production | `assets/hue/source/` + manifest hashes |
+| Produce seven optimized scene derivatives | DONE_VERIFIED | asset production | 7 × 1920×1080 WebP outputs + manifest |
+| Produce editorial card derivatives | DONE_VERIFIED | asset production | 5 × 960×640 WebP outputs |
+| Replace remote raster pins with local authored marker system | DONE_VERIFIED | asset production | 3 local SVG markers |
+| Record attribution / transformations | DONE_VERIFIED | asset production | `assets/hue/CREDITS.md` |
+| Create visual-review contact sheet | DONE_VERIFIED | asset production | `assets/hue/previews/scene-contact-sheet.webp` |
+| Reject old Mostar scene fingerprints from new asset family | DONE_VERIFIED | asset production | CI grep gate + local-only asset tree |
+| Verify asset build reproducibility | DONE_VERIFIED | asset production | GitHub Actions `Build Huế Production Assets` run #2 PASS |
+| Human visual veto on generated contact sheet | PENDING_FUTURE_PHASE | visual approval | inspect contact sheet / scene crops before UI wiring |
 | Verify display-font license/glyph coverage | PENDING_FUTURE_PHASE | implementation | font specimen + license source |
 | Implement new Huế content/visual system | PENDING_FUTURE_PHASE | implementation | rendered representative pages |
 | Responsive 390/768/1440 visual QA | PENDING_FUTURE_PHASE | QA | browser screenshots |
 | Accessibility / Axe / Lighthouse | PENDING_FUTURE_PHASE | QA | CI/browser evidence |
 | GitHub Pages production smoke | PENDING_FUTURE_PHASE | release | deployed URL |
+
+## Production asset inventory
+
+```text
+assets/hue/
+├── CREDITS.md
+├── asset-manifest.json
+├── source/
+│   ├── ngo-mon.jpg
+│   ├── perfume-river.jpg
+│   ├── truong-tien.jpg
+│   ├── khai-dinh.jpg
+│   └── dong-ba.jpg
+├── scenes/
+│   ├── 01-river-atmosphere.webp
+│   ├── 02-citadel-backdrop.webp
+│   ├── 03-ngo-mon-threshold.webp
+│   ├── 04-imperial-left.webp
+│   ├── 05-imperial-right.webp
+│   ├── 06-river-transition.webp
+│   └── 07-beyond-walls.webp
+├── cards/
+│   ├── ngo-mon.webp
+│   ├── perfume-river.webp
+│   ├── truong-tien.webp
+│   ├── khai-dinh.webp
+│   └── dong-ba.webp
+├── markers/
+│   ├── river-node.svg
+│   ├── imperial-node.svg
+│   └── legacy-node.svg
+└── previews/
+    └── scene-contact-sheet.webp
+```
+
+## Asset-production evidence
+
+Build workflow:
+
+- workflow: `Build Huế Production Assets`
+- successful run: `36293848436`
+- generated-asset commit: `6cb12cccdca2d30cd6785feb45a4d22b752fa52a`
+- source masters are normalized locally to max 2560 px where needed;
+- all seven cinematic scene outputs are 1920×1080;
+- threshold/split scene families retain alpha for layered choreography;
+- `asset-manifest.json` records source IDs, dimensions, transforms and SHA-256 hashes;
+- `CREDITS.md` records author/source/license/transformation details;
+- generated Huế asset family does not depend on the existing Mostar Figma/CloudFront scene URLs.
 
 ## Current blockers
 
@@ -56,27 +111,29 @@ Signature system:
 
 `UNACCOUNTED = 0`
 
-## Research evidence limitations
+## Evidence limitations
 
-- Live GitHub Pages rendering was not used as visual evidence in this phase; current-state structure was audited from repository source.
-- Asset shortlist is approved as source material, not proof that the final crops/composites will work in the current choreography.
+- Asset-generation and structural/media contracts are verified, but the seven-scene contact sheet has not yet received the human visual veto required before UI wiring.
+- The generated crops/composites have not yet been tested inside the live 3700px cinematic choreography; that belongs to the implementation/rendered gate.
 - Final typography is intentionally not locked until Vietnamese glyph and license verification.
 - Route durations/geographic itineraries are not finalized and must not be invented.
 
 ## Exit result
 
-`PROMPT 1 / RESEARCH PHASE: PASS`
+`ASSET PRODUCTION GATE: PASS`
 
 Reason:
 
-The project now has a Huế-specific narrative, asset source plan, visual signature, palette direction, responsive intent and explicit preserve/change boundary. No current-phase blocker remains.
+The approved Huế shortlist has been converted into a local, provenance-documented and reproducible production asset family: source masters, seven cinematic scenes, five editorial cards, three original SVG markers, manifest, credits and review contact sheet. The original Mostar production UI remains untouched.
 
 ## Next gate
 
 Human visual approval of:
 
-1. `HUE-VISUAL-RESEARCH.md`
-2. `HUE-ASSET-REPLACEMENT-MATRIX.md`
-3. `HUE-ART-DIRECTION-CONTRACT.md`
+1. `assets/hue/previews/scene-contact-sheet.webp`
+2. `assets/hue/scenes/03-ngo-mon-threshold.webp`
+3. `assets/hue/scenes/04-imperial-left.webp` + `05-imperial-right.webp`
+4. `assets/hue/scenes/06-river-transition.webp`
+5. `assets/hue/scenes/07-beyond-walls.webp`
 
-After approval, implementation can begin on a separate implementation branch.
+Only after that visual veto should implementation begin on the Huế HTML/CSS/JS transformation.
