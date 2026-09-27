@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Cormorant+SC:wght@400;500;600&family=Spectral:wght@400;500&display=swap");
+
+/*
+ * HUẾ — Imperial Editorial Typography Layer
+ *
+ * Type-only experiment. This layer intentionally does not change scene geometry,
+ * spacing structure, media, animation, or cinematic timing.
+ */
+
+:root {
+  /* Families */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-ceremonial: "Cormorant SC", "Cormorant Garamond", Georgia, serif;
+  --font-editorial: "Spectral", Georgia, serif;
+  --font-ui: "Be Vietnam Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Display scale */
+  --type-hero: clamp(9.5rem, 21vw, 22rem);
+  --type-display-xl: clamp(4.25rem, 6.2vw, 7rem);
+  --type-display-lg: clamp(2.05rem, 2.5vw, 2.75rem);
+  --type-display-md: clamp(1.7rem, 2vw, 2.15rem);
+
+  /* Editorial scale */
+  --type-lede: clamp(1.28rem, 1.7vw, 1.72rem);
+  --type-body: 1.02rem;
+  --type-body-sm: 0.82rem;
+
+  /* Ceremonial / interface scale */
+  --type-label: 0.69rem;
+  --type-ui: 0.75rem;
+  --type-micro: 0.61rem;
+
+  /* Rhythm */
+  --leading-display-tight: 0.82;
+  --leading-display: 0.9;
+  --leading-editorial: 1.55;
+  --leading-ui: 1.25;
+  --tracking-display: -0.018em;
+  --tracking-ceremonial: 0.16em;
+  --tracking-ui: 0.09em;
+  --tracking-micro: 0.14em;
+}
+
+/* --------------------------------------------------------------------------
+   Global roles
+   -------------------------------------------------------------------------- */
+
+body {
+  font-family: var(--font-editorial);
+  font-kerning: normal;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+.site-logo,
+.hero-title,
+.story-panel h2,
+.facts dt,
+.sight-card h3,
+.routes-hero h1,
+.route-card h2,
+.route-number {
+  font-family: var(--font-display);
+}
+
+.site-nav,
+.site-logo small,
+.edition-mark,
+.hero-index,
+.hero-tags,
+.note-button,
+.sight-nav,
+.route-key,
+.route-meta,
+.site-footer {
+  font-family: var(--font-ui);
+}
+
+.chapter-mark,
+.sight-kicker,
+.routes-eyebrow,
+.route-kicker {
+  font-family: var(--font-ceremonial);
+  font-weight: 500;
+  letter-spacing: var(--tracking-ceremonial);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Homepage hierarchy
+   -------------------------------------------------------------------------- */
+
+.site-logo span {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.site-logo small {
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.site-nav a {
+  font-family: var(--font-ui);
+  font-size: var(--type-ui);
+  font-weight: 600;
+  letter-spacing: var(--tracking-ui);
+}
+
+.edition-mark {
+  font-family: var(--font-ui);
+  font-size: var(--type-micro);
+  font-weight: 600;
+  letter-spacing: var(--tracking-micro);
+}
+
+.hero-title {
+  font-size: var(--type-hero);
+  font-weight: 500;
+  line-height: 0.74;
+  letter-spacing: -0.008em;
+}
+
+.hero-index {
+  font-family: var(--font-ui);
+  font-size: var(--type-micro);
+  font-weight: 600;
+  letter-spacing: var(--tracking-micro);
+}
+
+.intro-copy p {
+  font-family: var(--font-editorial);
+  font-size: var(--type-lede);
+  font-weight: 400;
+  line-height: 1.42;
+  letter-spacing: -0.006em;
+}
+
+.hero-tags span {
+  font-family: var(--font-ui);
+  font-size: var(--type-micro);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.chapter-mark {
+  font-size: var(--type-label) !important;
+  line-height: var(--leading-ui) !important;
+}
+
+.story-panel h2 {
+  font-size: var(--type-display-xl);
+  font-weight: 500;
+  line-height: var(--leading-display-tight);
+  letter-spacing: var(--tracking-display);
+}
+
+.story-panel p:not(.chapter-mark) {
+  font-family: var(--font-editorial);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-editorial);
+  letter-spacing: -0.004em;
+}
+
+.facts dt {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 4.5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+}
+
+.facts dd {
+  font-family: var(--font-editorial);
+  font-size: var(--type-body-sm);
+  line-height: 1.45;
+}
+
+.note-button {
+  font-family: var(--font-ui);
+  font-size: var(--type-ui);
+  font-weight: 600;
+  letter-spacing: var(--tracking-ui);
+}
+
+.sight-kicker {
+  font-size: var(--type-micro);
+  line-height: var(--leading-ui);
+}
+
+.sight-card h3 {
+  font-size: var(--type-display-lg);
+  font-weight: 500;
+  line-height: var(--leading-display);
+  letter-spacing: -0.015em;
+}
+
+.sight-card p {
+  font-family: var(--font-editorial);
+  font-size: 0.76rem;
+  line-height: 1.42;
+}
+
+/* --------------------------------------------------------------------------
+   Routes hierarchy
+   -------------------------------------------------------------------------- */
+
+.routes-eyebrow,
+.route-kicker {
+  font-size: var(--type-label);
+  line-height: var(--leading-ui);
+}
+
+.routes-hero h1 {
+  font-size: clamp(5rem, 10vw, 10.8rem);
+  font-weight: 500;
+  line-height: 0.76;
+  letter-spacing: -0.02em;
+}
+
+.routes-lede {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.08rem, 1.35vw, 1.28rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.route-key,
+.route-meta dt {
+  font-family: var(--font-ui);
+  font-size: var(--type-micro);
+  font-weight: 600;
+  letter-spacing: var(--tracking-micro);
+}
+
+.route-number {
+  font-size: clamp(3.6rem, 5vw, 5.4rem);
+  font-weight: 500;
+  line-height: 0.84;
+}
+
+.route-card h2 {
+  font-size: clamp(2.5rem, 4vw, 4.3rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.018em;
+}
+
+.route-meta dd,
+.route-stops span,
+.route-stops small,
+.route-note p {
+  font-family: var(--font-editorial);
+}
+
+.route-meta dd,
+.route-stops span {
+  line-height: 1.45;
+}
+
+.route-stops small {
+  line-height: 1.5;
+}
+
+.route-note p {
+  font-size: clamp(1.25rem, 1.8vw, 1.7rem);
+  font-weight: 400;
+  line-height: 1.42;
+}
+
+.route-note a {
+  font-family: var(--font-ui);
+  font-size: var(--type-ui);
+  font-weight: 600;
+  letter-spacing: var(--tracking-ui);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive type scale only — no layout ownership
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  :root {
+    --type-hero: clamp(9rem, 25vw, 16.5rem);
+    --type-display-xl: clamp(4rem, 8.2vw, 5.9rem);
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --type-hero: clamp(8.2rem, 40vw, 11.5rem);
+    --type-display-xl: clamp(3.35rem, 14.8vw, 5rem);
+    --type-lede: 1.2rem;
+    --type-body: 0.92rem;
+    --type-ui: 0.69rem;
+    --type-label: 0.64rem;
+    --type-micro: 0.56rem;
+  }
+
+  .hero-title {
+    line-height: 0.76;
+  }
+
+  .intro-copy p {
+    line-height: 1.38;
+  }
+
+  .routes-hero h1 {
+    font-size: clamp(4.4rem, 21vw, 6.8rem);
+  }
+
+  .route-card h2 {
+    font-size: clamp(2.25rem, 11vw, 3.45rem);
+  }
+}
