@@ -1,0 +1,58 @@
+/*
+ * Scene-specific Huế choreography tuning.
+ * This file adapts approved media geometry without changing script.js math.
+ */
+
+/* The split assets support the first transition; they should not ghost the intro hero. */
+.splitframe-img {
+  opacity: var(--frame2-opacity);
+}
+
+/* Keep the authored HUẾ wordmark legible while architecture still passes in front later. */
+.hero-title {
+  z-index: 5;
+  font-size: clamp(9rem, 16vw, 18rem);
+  color: rgba(238, 228, 207, 0.94);
+}
+
+/* Editorial vignette: improve copy contrast without introducing a card/container surface. */
+.story-panel {
+  isolation: isolate;
+}
+
+.story-panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -110px -150px -120px;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(3, 10, 8, 0.74) 0%,
+    rgba(3, 10, 8, 0.54) 34%,
+    rgba(3, 10, 8, 0.18) 62%,
+    transparent 78%
+  );
+  filter: blur(10px);
+}
+
+.story-panel h2,
+.story-panel p,
+.facts dt,
+.facts dd {
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.55);
+}
+
+.chapter-mark {
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.52) !important;
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: clamp(7.2rem, 34vw, 10rem);
+  }
+
+  .story-panel::before {
+    inset: -90px -45px -100px;
+  }
+}
