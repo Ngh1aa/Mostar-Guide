@@ -2,11 +2,13 @@
 
 ## Current phase
 
-`VISUAL VETO COMPLETE / READY FOR IMPLEMENTATION`
+`IMPLEMENTATION COMPLETE / PR QA`
 
-Branch: `research/hue-visual-system`
+Branch: `feat/hue-between-river-citadel`
 
-No production `index.html`, `styles.css`, `script.js`, `routes.html`, `routes.css`, or `routes.js` has been changed in this phase.
+Pull request: `#5`
+
+The Huế transformation is implemented on the feature branch. `main` is still unchanged until the implementation PR is approved and merged.
 
 ## Current direction
 
@@ -31,152 +33,108 @@ Signature system:
 - panoramic architectural composition
 - restrained five-colour-derived palette
 
+## Preserve / change result
+
+### Preserved exactly
+
+The cinematic engine remains byte-identical:
+
+- `script.js` blob SHA: `ac4a26e4e98bb56fffe3ac7213b2951f12560543`
+- `clamp()`
+- `smoothstep()`
+- `lerp()`
+- `segmentInOut()`
+- CSS-variable-driven rendering
+- requestAnimationFrame scheduling
+- reduced-motion branch
+- three-set infinite slider cloning
+- `jumpSightSlider()` / `normalizeSightSlider()`
+
+### Replaced / transformed
+
+- all user-facing Mostar / Bosnia identity;
+- all seven remote Mostar scene images;
+- all three remote raster pin images;
+- homepage metadata and copy;
+- story anchors and navigation labels;
+- sights content;
+- route content;
+- favicon / visual identity;
+- Huế-specific layer treatment and card styling;
+- rendered QA contract and stale-identity checks.
+
+Scene-specific visual motion is retuned through Huế CSS/layer geometry instead of rewriting the preserved engine.
+
 ## Requirement ledger
 
-| Requirement | State | Owner phase | Verification |
-|---|---|---|---|
-| Audit current destination-specific identity | DONE_VERIFIED | research | source inspection |
-| Establish Huế factual narrative basis | DONE_VERIFIED | research | UNESCO / authoritative research |
-| Define visual direction | DONE_VERIFIED | research | art-direction contract |
-| Replace current Mostar asset plan | DONE_VERIFIED | research | replacement matrix |
-| Verify source licenses for primary candidates | DONE_VERIFIED | research | Wikimedia Commons file pages |
-| Download/store production media locally | DONE_VERIFIED | asset production | `assets/hue/source/` + manifest hashes |
-| Produce seven optimized scene derivatives | DONE_VERIFIED | asset production | 7 × 1920×1080 WebP outputs + manifest |
-| Produce editorial card derivatives | DONE_VERIFIED | asset production | 5 × 960×640 WebP outputs |
-| Replace remote raster pins with local authored marker system | DONE_VERIFIED | asset production | 3 local SVG markers |
-| Record attribution / transformations | DONE_VERIFIED | asset production | `assets/hue/CREDITS.md` |
-| Create visual-review contact sheet | DONE_VERIFIED | asset production | `assets/hue/previews/scene-contact-sheet.webp` |
-| Create aligned split-pair proof | DONE_VERIFIED | visual approval | `assets/hue/previews/split-pair-proof.webp` |
-| Reject old Mostar scene fingerprints from new asset family | DONE_VERIFIED | asset production | CI grep gate + local-only asset tree |
-| Verify asset build reproducibility | DONE_VERIFIED | asset production | GitHub Actions asset workflow PASS |
-| Human visual veto on generated scene system | DONE_VERIFIED | visual approval | v5 contact-sheet review + split-pair proof |
-| Verify display-font license/glyph coverage | PENDING_FUTURE_PHASE | implementation | font specimen + license source |
-| Implement new Huế content/visual system | PENDING_FUTURE_PHASE | implementation | rendered representative pages |
-| Responsive 390/768/1440 visual QA | PENDING_FUTURE_PHASE | QA | browser screenshots |
-| Accessibility / Axe / Lighthouse | PENDING_FUTURE_PHASE | QA | CI/browser evidence |
-| GitHub Pages production smoke | PENDING_FUTURE_PHASE | release | deployed URL |
+| Requirement | State | Verification |
+|---|---|---|
+| Huế factual / visual research | DONE_VERIFIED | research docs + authoritative source record |
+| Huế art-direction contract | DONE_VERIFIED | `HUE-ART-DIRECTION-CONTRACT.md` |
+| Production media local + provenance documented | DONE_VERIFIED | `assets/hue/` + `CREDITS.md` + manifest |
+| Seven cinematic scene derivatives | DONE_VERIFIED | asset inventory / visual-veto artifact |
+| Human visual veto on scene family | DONE_VERIFIED | V5 contact-sheet + split-pair proof |
+| Replace Mostar identity on homepage | DONE_VERIFIED | branch source + QA stale-identity gate |
+| Replace Mostar identity on Routes | DONE_VERIFIED | branch source + QA stale-identity gate |
+| Replace remote scene/pin media | DONE_VERIFIED | local Huế media + CI grep gate |
+| Preserve cinematic engine | DONE_VERIFIED | exact `script.js` blob check |
+| Retune choreography for Huế media | DONE_VERIFIED | `hue-choreography.css` + rendered checkpoints |
+| Preserve 3× infinite slider architecture | DONE_VERIFIED | rendered smoke: 15 cloned cards + control movement |
+| Rename story anchors | DONE_VERIFIED | `#citadel` / `#river` + `shared/nav.js` |
+| Routes remain isolated from cinematic engine | DONE_VERIFIED | rendered smoke confirms no `script.js` on routes page |
+| Desktop rendered choreography | DONE_VERIFIED | branch QA run `36298304486` |
+| Mobile 390px overflow smoke | DONE_VERIFIED | branch QA run `36298304486` |
+| Accessibility gate | DONE_VERIFIED | Lighthouse Home `1.00`, Routes `1.00` |
+| Pull-request QA on final head | PENDING_CURRENT_PHASE | PR #5 workflow |
+| Production GitHub Pages smoke | PENDING_FUTURE_PHASE | after merge / deploy |
 
-## Production asset inventory
+## Implemented production surfaces
 
-```text
-assets/hue/
-├── CREDITS.md
-├── asset-manifest.json
-├── source/
-│   ├── ngo-mon.jpg
-│   ├── perfume-river.jpg
-│   ├── truong-tien.jpg
-│   ├── khai-dinh.jpg
-│   └── dong-ba.jpg
-├── scenes/
-│   ├── 01-river-atmosphere.webp
-│   ├── 02-citadel-backdrop.webp
-│   ├── 03-ngo-mon-threshold.webp
-│   ├── 04-imperial-left.webp
-│   ├── 05-imperial-right.webp
-│   ├── 06-river-transition.webp
-│   └── 07-beyond-walls.webp
-├── cards/
-│   ├── ngo-mon.webp
-│   ├── perfume-river.webp
-│   ├── truong-tien.webp
-│   ├── khai-dinh.webp
-│   └── dong-ba.webp
-├── markers/
-│   ├── river-node.svg
-│   ├── imperial-node.svg
-│   └── legacy-node.svg
-└── previews/
-    ├── scene-contact-sheet.webp
-    └── split-pair-proof.webp
-```
+### Homepage
 
-## Visual-veto record
+- identity: `HUẾ — Between River & Citadel`;
+- chapters: Intro → Citadel → River → Places;
+- local scene family under `assets/hue/scenes/`;
+- local editorial card imagery under `assets/hue/cards/`;
+- local SVG markers under `assets/hue/markers/`;
+- Huế-specific visual overrides in `hue.css`;
+- scene tuning in `hue-choreography.css`.
 
-### V1 — REJECTED
+### Routes
 
-Reasons:
+- three Huế thematic routes;
+- 4 / 5 / 3 stop structure retained for stable QA geometry;
+- no invented route duration claims;
+- local Huế markers;
+- route-specific visual language in `hue-routes.css`;
+- routes page remains independent of `script.js`.
 
-- first Ngọ Môn source was too close/generic to carry the Imperial Threshold signature;
-- the contact-sheet preview exposed hidden RGB in alpha scenes as horizontal smear;
-- the Trường Tiền scene relied on a traffic-heavy double exposure;
-- the Khải Định / Đông Ba composite was too muddy and collage-like.
+## Latest rendered evidence
 
-### V2 — CONDITIONAL
+Branch QA run:
 
-Changes:
+- run: `36298304486`
+- result: `PASS`
+- JavaScript syntax: PASS
+- preserved engine blob: PASS
+- Huế production asset contract: PASS
+- stale Mostar identity gate: PASS
+- Chromium choreography smoke: PASS
+- infinite slider interaction: PASS
+- 390px responsive overflow smoke: PASS
+- Lighthouse Accessibility: Home `1.00`
+- Lighthouse Accessibility: Routes `1.00`
+- artifact: `hue-uiux-qa-evidence`
 
-- switched Ngọ Môn source to the grand entrance complex;
-- fixed alpha-scene preview compositing against the real dark surface;
-- re-selected a river-side public-domain Trường Tiền source;
-- rebuilt `07-beyond-walls.webp` as a cleaner editorial contrast.
+Representative evidence includes:
 
-Remaining issue:
-
-- Trường Tiền still read too much like a ghosted double exposure.
-
-### V3 — REOPENED AFTER HUMAN REVIEW
-
-The uploaded contact sheet exposed issues that structural asset QA could not catch:
-
-- `03` still felt like a heavy tunnel vignette rather than an architectural threshold;
-- `04` and `05` looked acceptable individually but duplicated the building when combined;
-- `06` still read like a photo strip pasted over another photo;
-- `07` was cleaner than V1 but the hard diagonal split still felt collage-like.
-
-Decision:
-
-`HUMAN VISUAL VETO = FAIL / REVISE`
-
-### V4 — CONDITIONAL
-
-Changes:
-
-- `01` received clearer river depth and less grey blur;
-- `02` retained more stone/roof detail;
-- `03` became an inset architectural portal with restrained edge feathering;
-- `06` became one coherent full-frame Trường Tiền scene with the River Line signature;
-- `07` became an intentional editorial diptych on a dark field rather than a blended diagonal composite.
-
-Remaining issue:
-
-- the first V4 split-pair implementation still duplicated Ngọ Môn because left/right layers used different crops of the same source.
-
-### V5 — PASS
-
-Final split-pair correction:
-
-- `04` and `05` now use one shared, registered full-frame Ngọ Môn crop;
-- only the alpha masks differ between the two layers;
-- the combined proof reconstructs a single continuous architectural image before the two halves separate in motion;
-- `split-pair-proof.webp` is the rendered evidence for this behavior.
-
-Final visual result:
-
-- `01` establishes river / mountain / mist atmosphere without over-processing;
-- `02` establishes the imperial architectural mass clearly;
-- `03` reads as an intentional threshold/portal rather than a tunnel vignette;
-- `04` + `05` reconstruct one coherent scene and are suitable for split-frame choreography;
-- `06` reads as a Huế river-crossing scene, not a pasted bridge band and not a Mostar-style singular-bridge identity;
-- `07` closes the sequence with a deliberate heritage / living-city editorial contrast.
-
-Decision:
-
-`HUMAN VISUAL VETO = PASS`
-
-## Asset-production evidence
-
-- current asset workflow: `Build Huế Production Assets`;
-- final visual-veto asset build: run `36297222747` — PASS;
-- final review artifact: `hue-visual-veto`;
-- aligned split-pair refinement is part of the reproducible pipeline;
-- current generated-asset head after the final build: `b2a47c176ae04ee6f48d033646452459fb976cde`;
-- source masters are normalized locally to max 2560 px where needed;
-- all seven cinematic scene outputs are 1920×1080;
-- threshold/split scene families retain alpha for layered choreography;
-- `asset-manifest.json` records source IDs, dimensions, transforms and SHA-256 hashes;
-- `CREDITS.md` records author/source/license/transformation details;
-- generated Huế asset family does not depend on the existing Mostar Figma/CloudFront scene URLs.
+- `home-intro.png`
+- `home-citadel.png`
+- `home-river.png`
+- `home-places.png`
+- `routes-desktop.png`
+- `mobile-index.png`
+- `mobile-routes.png`
 
 ## Current blockers
 
@@ -186,20 +144,23 @@ Decision:
 
 `UNACCOUNTED = 0`
 
-## Evidence limitations
+## Current evidence limitations
 
-- The approved assets have not yet been tested inside the live 3700px cinematic choreography; that belongs to the implementation/rendered gate.
-- Final typography is intentionally not locked until Vietnamese glyph and license verification.
-- Route durations/geographic itineraries are not finalized and must not be invented.
+- The implementation has not yet been production-smoked on the public GitHub Pages URL because `main` has not been merged.
+- The repository slug remains `Mostar-Guide`; this is an infrastructure name, not user-facing destination identity.
+- `script.js` retains legacy internal variable/class vocabulary because byte preservation is intentional; user-facing semantics are Huế-specific.
 
-## Exit result
+## Current result
 
-`RESEARCH + ASSET + VISUAL VETO GATE: PASS`
+`IMPLEMENTATION CANDIDATE: PASS ON FEATURE BRANCH`
 
 Reason:
 
-The project now has an approved Huế narrative, art-direction contract, local provenance-documented production media, a repeatable asset pipeline, seven visually approved cinematic scenes, a verified single-scene split pair, five editorial cards and three original SVG markers. The original Mostar production UI is still untouched at the moment of approval.
+The implementation replaces destination identity, content and media while keeping the verified animation engine intact. Rendered browser evidence passes current functional, responsive and accessibility gates.
 
 ## Next gate
 
-Create a separate Huế implementation branch and wire the approved visual system into production while preserving the reusable scroll/slider engineering contract. Implementation must then pass rendered choreography, responsive, accessibility, stale-Mostar-identity and deployment QA before release.
+1. PR #5 final-head QA must complete successfully.
+2. Human review of the PR implementation candidate.
+3. Merge only after approval.
+4. Run GitHub Pages deployment and production smoke on the public URL after merge.
