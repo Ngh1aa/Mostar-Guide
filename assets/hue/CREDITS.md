@@ -13,15 +13,16 @@ They are not official Huế tourism or heritage-centre assets.
 
 ## Source assets
 
-### A01 — Ngo Mon Gate for entry to the Imperial Citadel, Hue (31654316702).jpg
+### A01 — The grand entrance complex to the Imperial Citadel (31801617815).jpg
 
 - **Local source master:** `source/ngo-mon.jpg`
 - **Author:** shankar s.
-- **Source:** https://commons.wikimedia.org/wiki/File:Ngo_Mon_Gate_for_entry_to_the_Imperial_Citadel,_Hue_(31654316702).jpg
+- **Source:** https://commons.wikimedia.org/wiki/File:The_grand_entrance_complex_to_the_Imperial_Citadel_(31801617815).jpg
 - **License:** CC BY 2.0
 - **License URL:** https://creativecommons.org/licenses/by/2.0/
-- **Role:** Imperial threshold / Ngọ Môn architecture
+- **Role:** Imperial Threshold / frontal Ngọ Môn grand-entrance composition
 - **Changes to local master:** downloaded from Wikimedia, EXIF-orientation normalized, resized to max 2560 px if needed, re-encoded as optimized progressive JPEG, metadata stripped.
+- **Selection note:** Selected after visual veto because the previous close gate crop did not read strongly enough as the project signature.
 
 ### A02 — Riviere des Parfums Hue.jpg
 
@@ -33,16 +34,16 @@ They are not official Huế tourism or heritage-centre assets.
 - **Role:** Perfume River atmosphere / depth base
 - **Changes to local master:** downloaded from Wikimedia, EXIF-orientation normalized, resized to max 2560 px if needed, re-encoded as optimized progressive JPEG, metadata stripped.
 
-### A03 — Truong Tien bridge.jpg
+### A03 — Truong Tien Bridge.jpg
 
 - **Local source master:** `source/truong-tien.jpg`
-- **Author:** Margrethe Store
-- **Source:** https://commons.wikimedia.org/wiki/File:Truong_Tien_bridge.jpg
-- **License:** CC BY 2.0
-- **License URL:** https://creativecommons.org/licenses/by/2.0/
-- **Role:** River crossing / transition geometry
+- **Author:** Lưu Ly
+- **Source:** https://commons.wikimedia.org/wiki/File:Truong_Tien_Bridge.jpg
+- **License:** Public Domain
+- **License URL:** https://commons.wikimedia.org/wiki/File:Truong_Tien_Bridge.jpg
+- **Role:** River crossing / reflection / horizontal connective geometry
 - **Changes to local master:** downloaded from Wikimedia, EXIF-orientation normalized, resized to max 2560 px if needed, re-encoded as optimized progressive JPEG, metadata stripped.
-- **Selection note:** Higher-resolution CC BY source selected over the lower-resolution Public Domain candidate for production quality.
+- **Selection note:** Re-selected during visual veto to remove traffic-heavy literal imagery and strengthen the river-as-spine art direction.
 
 ### A04 — Khai Dinh tomb Hue (27767136409).jpg
 

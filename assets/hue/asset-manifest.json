@@ -8,19 +8,20 @@
   "sources": {
     "A01": {
       "slug": "ngo-mon",
-      "title": "Ngo Mon Gate for entry to the Imperial Citadel, Hue (31654316702).jpg",
+      "title": "The grand entrance complex to the Imperial Citadel (31801617815).jpg",
       "author": "shankar s.",
       "license": "CC BY 2.0",
       "license_url": "https://creativecommons.org/licenses/by/2.0/",
-      "page_url": "https://commons.wikimedia.org/wiki/File:Ngo_Mon_Gate_for_entry_to_the_Imperial_Citadel,_Hue_(31654316702).jpg",
-      "download_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Ngo_Mon_Gate_for_entry_to_the_Imperial_Citadel%2C_Hue_%2831654316702%29.jpg",
-      "role": "Imperial threshold / Ngọ Môn architecture",
+      "page_url": "https://commons.wikimedia.org/wiki/File:The_grand_entrance_complex_to_the_Imperial_Citadel_(31801617815).jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/The_grand_entrance_complex_to_the_Imperial_Citadel_%2831801617815%29.jpg",
+      "role": "Imperial Threshold / frontal Ngọ Môn grand-entrance composition",
+      "note": "Selected after visual veto because the previous close gate crop did not read strongly enough as the project signature.",
       "local_path": "assets/hue/source/ngo-mon.jpg",
       "pixels": [
         2560,
         1707
       ],
-      "sha256": "3bf6301baa4d2e2f39bc64fcd07f016227d76b428f989c02a0831ad503981f7d"
+      "sha256": "77cec451c36b623ce0f415d070b83e40d707a9d6dac6bfaa31290e4e1674053c"
     },
     "A02": {
       "slug": "perfume-river",
@@ -40,20 +41,20 @@
     },
     "A03": {
       "slug": "truong-tien",
-      "title": "Truong Tien bridge.jpg",
-      "author": "Margrethe Store",
-      "license": "CC BY 2.0",
-      "license_url": "https://creativecommons.org/licenses/by/2.0/",
-      "page_url": "https://commons.wikimedia.org/wiki/File:Truong_Tien_bridge.jpg",
-      "download_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Truong_Tien_bridge.jpg",
-      "role": "River crossing / transition geometry",
-      "note": "Higher-resolution CC BY source selected over the lower-resolution Public Domain candidate for production quality.",
+      "title": "Truong Tien Bridge.jpg",
+      "author": "Lưu Ly",
+      "license": "Public Domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Truong_Tien_Bridge.jpg",
+      "page_url": "https://commons.wikimedia.org/wiki/File:Truong_Tien_Bridge.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Truong_Tien_Bridge.jpg",
+      "role": "River crossing / reflection / horizontal connective geometry",
+      "note": "Re-selected during visual veto to remove traffic-heavy literal imagery and strengthen the river-as-spine art direction.",
       "local_path": "assets/hue/source/truong-tien.jpg",
       "pixels": [
-        2304,
-        1728
+        985,
+        658
       ],
-      "sha256": "75025a167d0dab5d1a87c4952b1693650b892b0ecf36236fad803529530cf562"
+      "sha256": "48ce4eac2c7ead11ccdcc1783ea57faa8ef980fca5d5848cf96d97453f0b0846"
     },
     "A04": {
       "slug": "khai-dinh",
@@ -113,7 +114,7 @@
         1080
       ],
       "mode": "RGBA",
-      "sha256": "ed67a7f0f92c67171b9a3674ea97fa73af6fa6c57754274761ffabd8e77ced16"
+      "sha256": "a78d064d673dfd69edf5bea6a8d93cb7b535e1278199c023b653f316c1bc11d8"
     },
     {
       "path": "scenes/03-ngo-mon-threshold.webp",
@@ -126,7 +127,7 @@
         1080
       ],
       "mode": "RGBA",
-      "sha256": "738428aa9cec4de7c5528fe6187742f1e9fb98c991c71455dd7df4f821efc009"
+      "sha256": "f56c090b04d2edae7668b1d5aaa196fd93985b65af248f11f8b6827e9bc56317"
     },
     {
       "path": "scenes/04-imperial-left.webp",
@@ -139,7 +140,7 @@
         1080
       ],
       "mode": "RGBA",
-      "sha256": "7a32a781abf17bc1bc87bfea43a1eec733020ad1320caa7b09b741d9241de1e6"
+      "sha256": "c0aa21956f4c9ba604a36ee3265f7d2691426e99df8db379ecac4c014bde470f"
     },
     {
       "path": "scenes/05-imperial-right.webp",
@@ -152,7 +153,7 @@
         1080
       ],
       "mode": "RGBA",
-      "sha256": "69a8ad3368ceac24991e2135212b7e9280811e1b1bdddd1000ca384196b99c1c"
+      "sha256": "db54a50bf81229b5b3b1964fa293234bb518e6c489d43592bbb1f1b982ec0dd0"
     },
     {
       "path": "scenes/06-river-transition.webp",
@@ -166,7 +167,7 @@
         1080
       ],
       "mode": "RGBA",
-      "sha256": "ca654af884ba11ff929edba9d31a0211be415603740ae1453be0d6ece01f2b0b"
+      "sha256": "73c537a577a7a8177e291464d534366abb2224723760c85c5e15437ad2715551"
     },
     {
       "path": "scenes/07-beyond-walls.webp",
@@ -180,7 +181,7 @@
         1080
       ],
       "mode": "RGBA",
-      "sha256": "9eea8b1d5dc2db2377b962f5d2a0b05ba0c8b7122795ce3a41cf22d1c4e28488"
+      "sha256": "6e261c3f1ad07aea297418fbe83f1bb23bdd17915cc03c699567a3c4161f4ea6"
     },
     {
       "path": "cards/ngo-mon.webp",
@@ -193,7 +194,7 @@
         640
       ],
       "mode": "RGB",
-      "sha256": "70aa5d280f1d0fcb12b265fdf4068e968e9197b76940b85120f3e5d00ab73d0c"
+      "sha256": "ef9218d617a129ca824a3974e11c464e51dc7ca361f49d9b493719ddfa9ca7dd"
     },
     {
       "path": "cards/perfume-river.webp",
@@ -219,7 +220,7 @@
         640
       ],
       "mode": "RGB",
-      "sha256": "9b6c31c343b78f76f49eec1fb01935652d5aed35375abd2bdbb67599743c944c"
+      "sha256": "aeaea555b8de3f8c2a8faac90920db833e96036fcf48fe2e601a7931dc1e2ced"
     },
     {
       "path": "cards/khai-dinh.webp",
@@ -297,7 +298,7 @@
         1376
       ],
       "mode": "RGB",
-      "sha256": "06c0c25d47fc410e63776491b86c2cea296079cd05a22a3cddf0acb4a6a7e80e"
+      "sha256": "6505c8715bb290ae9961ffa278c6cae05677b51093f87dac4e1eae5cdb8c3d2b"
     }
   ]
 }
