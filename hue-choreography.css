@@ -63,63 +63,34 @@
 /*
  * Desktop repair pass — Intro + Citadel only.
  *
- * 1) The approved threshold source is an inset photographic plate. On desktop
- *    its alpha edges were still reading as a large translucent rectangle over
- *    the river. Feather all four plate edges so the architecture dissolves into
- *    the atmospheric opener instead of exposing its raster canvas.
+ * ARRIVAL owns the river atmosphere. The earlier desktop composition allowed
+ * destination layers intended for later chapters to leak in at low opacity and
+ * also placed the inset Ngọ Môn plate over the river, exposing raster rectangles.
+ * Remove those early visual owners entirely at desktop size.
  *
- * 2) At the 900px Citadel checkpoint, the registered split pair and the full
- *    Citadel backdrop were all legible at once, so Ngọ Môn appeared three times.
- *    The full-frame backdrop now owns that chapter on desktop. The split math is
- *    still preserved in script.js; only its visual participation is suppressed
- *    for this composition.
+ * CITADEL owns one full-frame Ngọ Môn image. The registered split pair remains
+ * mathematically driven by script.js, but is visually suppressed on desktop so
+ * the 900px checkpoint reads as one coherent architectural scene rather than a
+ * triple exposure.
  *
- * This scope intentionally leaves River / Places / Routes / mobile rules alone.
+ * River / Places peak states and all mobile rules remain untouched.
  */
 @media (min-width: 1101px) {
+  /* ARRIVAL: pure river + HUẾ + editorial copy. */
   .bridge-img {
-    -webkit-mask-image:
-      linear-gradient(
-        to bottom,
-        transparent 2%,
-        rgba(0, 0, 0, 0.34) 9%,
-        #000 20%,
-        #000 84%,
-        rgba(0, 0, 0, 0.68) 91%,
-        transparent 98%
-      ),
-      linear-gradient(
-        to right,
-        transparent 2%,
-        rgba(0, 0, 0, 0.55) 8%,
-        #000 15%,
-        #000 85%,
-        rgba(0, 0, 0, 0.55) 92%,
-        transparent 98%
-      );
-    -webkit-mask-composite: source-in;
-    mask-image:
-      linear-gradient(
-        to bottom,
-        transparent 2%,
-        rgba(0, 0, 0, 0.34) 9%,
-        #000 20%,
-        #000 84%,
-        rgba(0, 0, 0, 0.68) 91%,
-        transparent 98%
-      ),
-      linear-gradient(
-        to right,
-        transparent 2%,
-        rgba(0, 0, 0, 0.55) 8%,
-        #000 15%,
-        #000 85%,
-        rgba(0, 0, 0, 0.55) 92%,
-        transparent 98%
-      );
-    mask-composite: intersect;
+    opacity: 0;
   }
 
+  /* Prevent future-chapter media from ghosting into the opener. */
+  .back-bazaar {
+    opacity: var(--panel3-opacity);
+  }
+
+  .back-four {
+    opacity: calc(var(--sights-opacity) * 0.70);
+  }
+
+  /* CITADEL: one architectural owner only. */
   .splitframe-img {
     opacity: 0;
   }
