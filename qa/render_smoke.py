@@ -21,7 +21,7 @@ def assert_images_loaded(page, selector: str, label: str) -> None:
 def wait_for_css_number(page, variable: str, minimum: float, label: str) -> None:
     page.wait_for_function(
         "([name, threshold]) => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name) || '0') >= threshold",
-        [variable, minimum],
+        arg=[variable, minimum],
         timeout=4000,
     )
     value = float(page.evaluate("name => getComputedStyle(document.documentElement).getPropertyValue(name) || 0", variable))
