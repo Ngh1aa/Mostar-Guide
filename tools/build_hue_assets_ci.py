@@ -35,8 +35,6 @@ builder.SOURCES["A01"].update(
     }
 )
 
-# Prefer the clean river-side public-domain view for Trường Tiền instead of a
-# traffic-heavy inside-the-bridge shot.
 builder.SOURCES["A03"].update(
     {
         "slug": "truong-tien",
@@ -62,53 +60,58 @@ builder.SOURCES["A05"]["download_url"] = (
 
 
 # ---------------------------------------------------------------------------
-# Visual-veto v2 compositions
+# Visual-veto v3 compositions
 # ---------------------------------------------------------------------------
 
-def scene_river_transition_v2(river: Image.Image, bridge: Image.Image) -> Image.Image:
-    """Editorial river chapter: bridge as a quiet horizontal trace, not a hero."""
+def scene_river_transition_v3(river: Image.Image, bridge: Image.Image) -> Image.Image:
+    """River chapter with one clean panoramic bridge band; no double exposure."""
     base = builder.cover(river, builder.CANVAS, focus=(0.50, 0.50))
     base = builder.grade(
         base,
-        saturation=0.66,
+        saturation=0.64,
         contrast=0.90,
-        brightness=0.82,
-        tint=(18, 54, 52, 28),
+        brightness=0.78,
+        tint=(18, 54, 52, 32),
+    )
+    base = Image.alpha_composite(
+        base,
+        builder.vertical_gradient(builder.CANVAS, (6, 14, 13, 14), (6, 14, 13, 126)),
     )
 
-    # A wide side-view band keeps Trường Tiền subordinate to the river.
-    bridge_band = builder.cover(bridge, (1920, 520), focus=(0.50, 0.48))
+    # Treat Trường Tiền as an editorial panoramic strip rather than a ghosted overlay.
+    band_h = 410
+    bridge_band = builder.cover(bridge, (1920, band_h), focus=(0.50, 0.52))
     bridge_band = builder.grade(
         bridge_band,
-        saturation=0.55,
-        contrast=0.96,
-        brightness=0.78,
-        tint=(21, 51, 49, 24),
+        saturation=0.58,
+        contrast=1.02,
+        brightness=0.74,
+        tint=(20, 50, 48, 20),
     )
 
-    band_alpha = Image.new("L", bridge_band.size, 0)
-    ad = ImageDraw.Draw(band_alpha)
-    ad.rectangle((0, 72, 1920, 448), fill=214)
-    band_alpha = band_alpha.filter(ImageFilter.GaussianBlur(42))
-    bridge_band.putalpha(band_alpha)
+    alpha = Image.new("L", (1920, band_h), 232)
+    ap = alpha.load()
+    feather = 28
+    for y in range(band_h):
+        edge = min(y, band_h - 1 - y)
+        if edge < feather:
+            value = round(232 * (edge / feather))
+            for x in range(1920):
+                ap[x, y] = value
+    bridge_band.putalpha(alpha)
 
-    layer = Image.new("RGBA", builder.CANVAS, (0, 0, 0, 0))
-    layer.alpha_composite(bridge_band, (0, 300))
-    merged = Image.alpha_composite(base, layer)
+    panel = Image.new("RGBA", builder.CANVAS, (0, 0, 0, 0))
+    panel.alpha_composite(bridge_band, (0, 315))
+    merged = Image.alpha_composite(base, panel)
 
-    # River Line signature: thin, low-noise, slightly rising like a route trace.
+    # River Line signature sits outside the photo band so it reads as navigation language.
     line = Image.new("RGBA", builder.CANVAS, (0, 0, 0, 0))
     ld = ImageDraw.Draw(line)
-    points = [(96, 750), (520, 734), (930, 714), (1360, 690), (1824, 676)]
-    ld.line(points, fill=(211, 177, 101, 122), width=2)
+    points = [(96, 785), (520, 768), (930, 748), (1360, 724), (1824, 710)]
+    ld.line(points, fill=(211, 177, 101, 138), width=2)
     for x, y in (points[1], points[2], points[3]):
-        ld.ellipse((x - 5, y - 5, x + 5, y + 5), fill=(239, 228, 201, 190))
-
-    merged = Image.alpha_composite(merged, line)
-    return Image.alpha_composite(
-        merged,
-        builder.vertical_gradient(builder.CANVAS, (6, 14, 13, 12), (6, 14, 13, 112)),
-    )
+        ld.ellipse((x - 5, y - 5, x + 5, y + 5), fill=(239, 228, 201, 205))
+    return Image.alpha_composite(merged, line)
 
 
 def scene_beyond_v2(khai: Image.Image, market: Image.Image) -> Image.Image:
@@ -130,7 +133,6 @@ def scene_beyond_v2(khai: Image.Image, market: Image.Image) -> Image.Image:
         tint=(66, 26, 22, 14),
     )
 
-    # Diagonal editorial cut with near-zero overlap; the boundary is deliberate.
     mask = Image.new("L", builder.CANVAS, 0)
     md = ImageDraw.Draw(mask)
     md.polygon([(1230, 0), (1920, 0), (1920, 1080), (1040, 1080)], fill=255)
@@ -177,7 +179,7 @@ def contact_sheet_v2(scene_paths: list[Path]) -> None:
     builder.save_webp(sheet, builder.PREVIEW_DIR / "scene-contact-sheet.webp", quality=84)
 
 
-builder.scene_river_transition = scene_river_transition_v2
+builder.scene_river_transition = scene_river_transition_v3
 builder.scene_beyond = scene_beyond_v2
 builder.contact_sheet = contact_sheet_v2
 
