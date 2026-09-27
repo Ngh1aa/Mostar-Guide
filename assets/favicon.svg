@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mostar bridge mark">
-  <rect width="64" height="64" rx="14" fill="#0b1110"/>
-  <path d="M11 42h42M15 40c3-18 31-18 34 0" fill="none" stroke="#fdf1e1" stroke-width="5" stroke-linecap="round"/>
-  <path d="M23 42c1-9 17-9 18 0" fill="none" stroke="#79b7dd" stroke-width="4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Huế threshold and river mark">
+  <rect width="64" height="64" fill="#08110f"/>
+  <path d="M12 42h40" stroke="#d3b165" stroke-width="2"/>
+  <path d="M18 40V25h28v15M23 25v-7h18v7M28 18v-5h8v5" fill="none" stroke="#eee4cf" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M9 49c10-4 18 4 28 0s14-2 18 0" fill="none" stroke="#315e5b" stroke-width="3" stroke-linecap="round"/>
 </svg>

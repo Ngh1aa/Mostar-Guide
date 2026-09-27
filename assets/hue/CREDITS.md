@@ -22,7 +22,7 @@ They are not official Huế tourism or heritage-centre assets.
 - **License URL:** https://creativecommons.org/licenses/by/2.0/
 - **Role:** Imperial Threshold / frontal Ngọ Môn grand-entrance composition
 - **Changes to local master:** downloaded from Wikimedia, EXIF-orientation normalized, resized to max 2560 px if needed, re-encoded as optimized progressive JPEG, metadata stripped.
-- **Selection note:** Selected after visual veto because the previous close gate crop did not read strongly enough as the project signature.
+- **Selection note:** Selected after visual veto because the earlier close gate crop did not read strongly enough as the project signature.
 
 ### A02 — Riviere des Parfums Hue.jpg
 
@@ -43,7 +43,7 @@ They are not official Huế tourism or heritage-centre assets.
 - **License URL:** https://commons.wikimedia.org/wiki/File:Truong_Tien_Bridge.jpg
 - **Role:** River crossing / reflection / horizontal connective geometry
 - **Changes to local master:** downloaded from Wikimedia, EXIF-orientation normalized, resized to max 2560 px if needed, re-encoded as optimized progressive JPEG, metadata stripped.
-- **Selection note:** Re-selected during visual veto to remove traffic-heavy literal imagery and strengthen the river-as-spine art direction.
+- **Selection note:** Selected for a full-frame river transition rather than a ghosted bridge composite.
 
 ### A04 — Khai Dinh tomb Hue (27767136409).jpg
 
@@ -70,43 +70,43 @@ They are not official Huế tourism or heritage-centre assets.
 ### `scenes/01-river-atmosphere.webp`
 
 - **Source IDs:** A02
-- **Transformation:** cover crop; low-contrast river grade; subtle blur/mist; dark lower gradient
+- **Transformation:** river crop with increased spatial clarity; restrained mist; cool Huế grade; subtle lower atmospheric density
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/02-citadel-backdrop.webp`
 
 - **Source IDs:** A01
-- **Transformation:** wide architectural crop; subdued imperial grade; top/bottom atmospheric density
+- **Transformation:** frontal architectural establishing crop; improved stone/roof readability; restrained imperial warmth
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/03-ngo-mon-threshold.webp`
 
 - **Source IDs:** A01
-- **Transformation:** central architectural crop; warm grade; soft alpha window for layered threshold reveal
+- **Transformation:** centered Ngọ Môn architectural portal; bright low-saturation sky keyed to alpha; restrained edge feather for cinematic layering
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/04-imperial-left.webp`
 
 - **Source IDs:** A01
-- **Transformation:** left architectural crop; translucent feather mask for split-frame choreography
+- **Transformation:** registered left half of shared Ngọ Môn crop; bright neutral sky keyed to alpha; centre-edge feather only
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/05-imperial-right.webp`
 
 - **Source IDs:** A01
-- **Transformation:** right architectural crop; translucent feather mask for split-frame choreography
+- **Transformation:** registered right half of shared Ngọ Môn crop; bright neutral sky keyed to alpha; centre-edge feather only
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/06-river-transition.webp`
 
-- **Source IDs:** A02, A03
-- **Transformation:** Perfume River base + Trường Tiền bridge crossfade band; river-line accent; unified cool grade
+- **Source IDs:** A03
+- **Transformation:** full-frame Trường Tiền river-crossing scene; unified cool grade; River Line navigation signature; no pasted-photo band
 - **Output:** 1920 × 1080 · RGBA
 
 ### `scenes/07-beyond-walls.webp`
 
 - **Source IDs:** A04, A05
-- **Transformation:** Khải Định + Đông Ba diagonal soft composite; heritage/living-city contrast; dark cinematic grade
+- **Transformation:** editorial diptych on dark field: Khải Định heritage panel + Đông Ba living-city panel; no diagonal double exposure
 - **Output:** 1920 × 1080 · RGBA
 
 ### `cards/ngo-mon.webp`
@@ -160,7 +160,7 @@ They are not official Huế tourism or heritage-centre assets.
 ### `previews/scene-contact-sheet.webp`
 
 - **Source IDs:** DERIVED_SCENES
-- **Transformation:** visual-review contact sheet of all seven generated scene outputs
+- **Transformation:** render-integration contact sheet; seven scene outputs plus keyed 04+05 split-pair proof
 - **Output:** 1032 × 1376 · RGB
 
 ## Local SVG marker system

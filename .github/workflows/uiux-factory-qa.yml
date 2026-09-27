@@ -34,7 +34,7 @@ jobs:
           node --check routes.js
           node --check shared/nav.js
 
-      - name: Verify immutable cinematic engine blob
+      - name: Verify preserved cinematic engine blob
         shell: bash
         run: |
           ACTUAL=$(git hash-object script.js)
@@ -42,27 +42,26 @@ jobs:
           echo "script.js blob: $ACTUAL"
           test "$ACTUAL" = "$EXPECTED"
 
-      - name: Verify remote assets respond
+      - name: Verify Huế production asset contract
         shell: bash
         run: |
           set -euo pipefail
-          urls=(
-            "https://dcym8fthxf5uu.cloudfront.net/fonts/247a073c-29f5-4a89-aa3a-741020f346fc/OggText-Medium.woff2"
-            "https://raft-blast-61784561.figma.site/_assets/v11/16b5007d9c93971e26ffe4e0e3e37946f6bd538c.png"
-            "https://raft-blast-61784561.figma.site/_assets/v11/8a7f8af50e0ce92ec2e228e7b0b4112178c51cf1.png"
-            "https://raft-blast-61784561.figma.site/_assets/v11/864afe00e41e2fa20a5aa546e15cb807e0f81384.png"
-            "https://raft-blast-61784561.figma.site/_assets/v11/7536d7b60a1fce482cf6edf3f0bffd3bad5d0f8a.png"
-            "https://raft-blast-61784561.figma.site/_assets/v11/392db6a6a6b98e868bd7f8d3f55bb719d51e5028.png"
-            "https://raft-blast-61784561.figma.site/_assets/v11/c6a6d8ef49bca43f708aa852692942c45ec950d4.png"
-            "https://raft-blast-61784561.figma.site/_assets/v11/ba75252bab2b1c510987b74837770f7bc8a6b2d4.png"
-            "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230438_d526b8b6-8a2e-4e3b-9993-3908acae03a7.png"
-            "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230442_140bc25b-b165-4249-904a-f708bff6970e.png"
-            "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230448_825949c9-ccdb-4857-b4a6-e349eccc9010.png"
-          )
-          for url in "${urls[@]}"; do
-            echo "Checking $url"
-            curl --fail --location --silent --show-error --retry 2 --max-time 30 --output /dev/null "$url"
-          done
+          test -f assets/hue/CREDITS.md
+          test -f assets/hue/asset-manifest.json
+          test -f assets/hue/previews/scene-contact-sheet.webp
+          test "$(find assets/hue/scenes -maxdepth 1 -name '*.webp' | wc -l)" -eq 7
+          test "$(find assets/hue/cards -maxdepth 1 -name '*.webp' | wc -l)" -eq 5
+          test "$(find assets/hue/markers -maxdepth 1 -name '*.svg' | wc -l)" -eq 3
+
+          if grep -nE 'raft-blast-61784561|d8j0ntlcm91z4' index.html routes.html hue.css hue-routes.css; then
+            echo "Old remote Mostar scene/pin asset reference found in production UI"
+            exit 1
+          fi
+
+          if grep -niE 'Mostar|Bosnia and Herzegovina|Stari Most|Neretva|Kujundžiluk|Kujundziluk|Koski Mehmed|Kajtaz House|War Photo Exhibition' index.html routes.html; then
+            echo "Stale Mostar identity found in user-facing production HTML"
+            exit 1
+          fi
 
       - name: Install rendered QA browser
         run: |
@@ -72,15 +71,15 @@ jobs:
       - name: Start static server
         shell: bash
         run: |
-          python -m http.server 4173 --bind 127.0.0.1 > /tmp/mostar-server.log 2>&1 &
-          echo $! > /tmp/mostar-server.pid
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/hue-server.log 2>&1 &
+          echo $! > /tmp/hue-server.pid
           for i in {1..30}; do
             if curl --fail --silent http://127.0.0.1:4173/index.html > /dev/null; then
               exit 0
             fi
             sleep 1
           done
-          cat /tmp/mostar-server.log
+          cat /tmp/hue-server.log
           exit 1
 
       - name: Run Chromium smoke and responsive checks
@@ -121,11 +120,11 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mostar-uiux-qa-evidence
+          name: hue-uiux-qa-evidence
           path: qa-artifacts/
           if-no-files-found: warn
           retention-days: 14
 
       - name: Print server log on failure
         if: failure()
-        run: cat /tmp/mostar-server.log || true
+        run: cat /tmp/hue-server.log || true

@@ -1,0 +1,107 @@
+/*
+ * Scene-specific Huế choreography tuning.
+ * This file adapts approved media geometry without changing script.js math.
+ */
+
+/*
+ * The split pair is supporting architecture, not a second full hero.
+ * Keep the original frame-2 timing but soften its visual weight so the
+ * central Imperial City backdrop remains the chapter anchor.
+ */
+.splitframe-img {
+  opacity: calc(var(--frame2-opacity) * 0.62);
+}
+
+/*
+ * The keyed Imperial Threshold belongs to the arrival/intro beat.
+ * Fade it with the authored hero instead of carrying the same Ngọ Môn
+ * photograph into later chapters, which previously created visible repetition.
+ */
+.bridge-img {
+  opacity: var(--title-opacity);
+}
+
+/* Keep the authored HUẾ wordmark legible while architecture still passes in front later. */
+.hero-title {
+  z-index: 5;
+  font-size: clamp(9rem, 16vw, 18rem);
+  color: rgba(238, 228, 207, 0.94);
+}
+
+/* Editorial vignette: improve copy contrast without introducing a card/container surface. */
+.story-panel {
+  isolation: isolate;
+}
+
+.story-panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -110px -150px -120px;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(3, 10, 8, 0.74) 0%,
+    rgba(3, 10, 8, 0.54) 34%,
+    rgba(3, 10, 8, 0.18) 62%,
+    transparent 78%
+  );
+  filter: blur(10px);
+}
+
+.story-panel h2,
+.story-panel p,
+.facts dt,
+.facts dd {
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.55);
+}
+
+.chapter-mark {
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.52) !important;
+}
+
+/*
+ * Desktop repair pass — Intro + Citadel only.
+ *
+ * ARRIVAL owns the river atmosphere. The earlier desktop composition allowed
+ * destination layers intended for later chapters to leak in at low opacity and
+ * also placed the inset Ngọ Môn plate over the river, exposing raster rectangles.
+ * Remove those early visual owners entirely at desktop size.
+ *
+ * CITADEL owns one full-frame Ngọ Môn image. The registered split pair remains
+ * mathematically driven by script.js, but is visually suppressed on desktop so
+ * the 900px checkpoint reads as one coherent architectural scene rather than a
+ * triple exposure.
+ *
+ * River / Places peak states and all mobile rules remain untouched.
+ */
+@media (min-width: 1101px) {
+  /* ARRIVAL: pure river + HUẾ + editorial copy. */
+  .bridge-img {
+    opacity: 0;
+  }
+
+  /* Prevent future-chapter media from ghosting into the opener. */
+  .back-bazaar {
+    opacity: var(--panel3-opacity);
+  }
+
+  .back-four {
+    opacity: calc(var(--sights-opacity) * 0.70);
+  }
+
+  /* CITADEL: one architectural owner only. */
+  .splitframe-img {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: clamp(7.2rem, 34vw, 10rem);
+  }
+
+  .story-panel::before {
+    inset: -90px -45px -100px;
+  }
+}
