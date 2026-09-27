@@ -50,6 +50,20 @@ jobs:
           ! grep -RIlE 'raft-blast-61784561|d8j0ntlcm91z4' assets/hue || exit 1
           du -sh assets/hue
 
+      - name: Upload visual-veto package
+        uses: actions/upload-artifact@v4
+        with:
+          name: hue-visual-veto
+          path: |
+            assets/hue/previews/scene-contact-sheet.webp
+            assets/hue/scenes/*.webp
+            assets/hue/cards/*.webp
+            assets/hue/markers/*.svg
+            assets/hue/CREDITS.md
+            assets/hue/asset-manifest.json
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Commit generated production assets
         shell: bash
         run: |
