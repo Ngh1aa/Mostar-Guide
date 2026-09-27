@@ -15,6 +15,14 @@ def assert_close(value: float, minimum: float, label: str) -> None:
         raise AssertionError(f"{label}: expected >= {minimum}, got {value}")
 
 
+def assert_images_loaded(page, selector: str, label: str) -> None:
+    broken = page.locator(selector).evaluate_all(
+        "els => els.filter(el => !el.complete || el.naturalWidth === 0).map(el => el.getAttribute('src'))"
+    )
+    if broken:
+        raise AssertionError(f"{label} contains broken images: {broken}")
+
+
 def run_home(browser) -> None:
     page = browser.new_page(viewport={"width": 1440, "height": 1000})
     page_errors: list[str] = []
@@ -22,40 +30,53 @@ def run_home(browser) -> None:
     page.on("pageerror", lambda exc: page_errors.append(str(exc)))
     page.on("requestfailed", lambda req: failed_requests.append(req.url))
 
-    page.goto(f"{BASE_URL}/index.html", wait_until="domcontentloaded")
-    page.wait_for_timeout(900)
+    page.goto(f"{BASE_URL}/index.html", wait_until="networkidle")
 
-    assert page.title() == "Mostar city"
+    assert page.title() == "HUẾ — Between River & Citadel"
     assert page.locator("#cinema").count() == 1
-    assert page.locator("#bridge").count() == 1
-    assert page.locator("#bazaar").count() == 1
+    assert page.locator("#citadel").count() == 1
+    assert page.locator("#river").count() == 1
     assert page.locator(".sight-card").count() == 15, "infinite slider must clone 3 sets of 5 cards"
-    assert page.locator('a[href="routes.html"]').count() == 1
+    assert page.locator('a[href="routes.html"]').count() >= 1
+    assert page.locator('img[src^="assets/hue/"]').count() >= 10
+    assert_images_loaded(page, 'img[src^="assets/hue/"]', "Homepage Huế media")
+
+    body_text = page.locator("body").inner_text()
+    for stale in (
+        "Mostar",
+        "Bosnia and Herzegovina",
+        "Stari Most",
+        "Neretva",
+        "Kujundžiluk",
+        "Kujundziluk",
+        "Koski Mehmed",
+        "Kajtaz House",
+        "War Photo Exhibition",
+    ):
+        assert stale not in body_text, f"stale destination identity visible on homepage: {stale}"
 
     checkpoints = [
         (0, "intro"),
-        (900, "bridge"),
-        (2140, "bazaar"),
-        (3560, "sights"),
+        (900, "citadel"),
+        (2140, "river"),
+        (3560, "places"),
     ]
     for y, name in checkpoints:
         page.evaluate("y => window.scrollTo(0, y)", y)
         page.wait_for_timeout(900)
         page.screenshot(path=str(ARTIFACTS / f"home-{name}.png"), full_page=False)
 
-        if name == "bridge":
+        if name == "citadel":
             opacity = float(page.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--panel2-opacity') || 0"))
-            assert_close(opacity, 0.8, "bridge panel opacity")
-        elif name == "bazaar":
+            assert_close(opacity, 0.8, "citadel panel opacity")
+        elif name == "river":
             opacity = float(page.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--panel3-opacity') || 0"))
-            assert_close(opacity, 0.8, "bazaar panel opacity")
-        elif name == "sights":
+            assert_close(opacity, 0.8, "river panel opacity")
+        elif name == "places":
             visibility = page.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--sights-visibility').trim()")
-            assert visibility == "visible", f"sights slider should be visible, got {visibility!r}"
+            assert visibility == "visible", f"places slider should be visible, got {visibility!r}"
 
     # Controls intentionally finish their own entrance later than the slider cards.
-    # The immutable core only adds `.is-ready` after sightsControlsEnter > 0.98,
-    # which occurs at the end of the 3360–3660 segment. Test the click there.
     page.evaluate("window.scrollTo(0, 3680)")
     page.wait_for_timeout(900)
     assert page.locator(".sights-controls.is-ready").count() == 1, "slider controls should be interactive after 3660px"
@@ -79,17 +100,24 @@ def run_home(browser) -> None:
 def run_routes(browser) -> None:
     page = browser.new_page(viewport={"width": 1440, "height": 1000})
     page_errors: list[str] = []
+    failed_requests: list[str] = []
     page.on("pageerror", lambda exc: page_errors.append(str(exc)))
+    page.on("requestfailed", lambda req: failed_requests.append(req.url))
 
-    page.goto(f"{BASE_URL}/routes.html", wait_until="domcontentloaded")
-    page.wait_for_timeout(500)
+    page.goto(f"{BASE_URL}/routes.html", wait_until="networkidle")
 
+    assert page.title() == "Suggested routes — HUẾ · Between River & Citadel"
     assert page.locator("main#routes").count() == 1
     assert page.locator("article.route-card").count() == 3
     stop_counts = page.locator("article.route-card").evaluate_all(
         "cards => cards.map(card => card.querySelectorAll('ol.route-stops > li').length)"
     )
     assert stop_counts == [4, 5, 3], f"route stop counts changed: {stop_counts}"
+    assert_images_loaded(page, 'img[src^="assets/hue/"]', "Routes Huế media")
+
+    body_text = page.locator("body").inner_text()
+    for stale in ("Mostar", "Stari Most", "Neretva", "Kujundžiluk", "Kujundziluk"):
+        assert stale not in body_text, f"stale destination identity visible on routes: {stale}"
 
     scripts = page.locator("script[src]").evaluate_all("els => els.map(el => el.getAttribute('src'))")
     assert "routes.js" in scripts
@@ -99,14 +127,16 @@ def run_routes(browser) -> None:
 
     if page_errors:
         raise AssertionError(f"Routes JS errors: {page_errors}")
+    local_failures = [url for url in failed_requests if url.startswith(BASE_URL)]
+    if local_failures:
+        raise AssertionError(f"Routes local request failures: {local_failures}")
     page.close()
 
 
 def run_mobile(browser) -> None:
     for route in ("index.html", "routes.html"):
         page = browser.new_page(viewport={"width": 390, "height": 844})
-        page.goto(f"{BASE_URL}/{route}", wait_until="domcontentloaded")
-        page.wait_for_timeout(500)
+        page.goto(f"{BASE_URL}/{route}", wait_until="networkidle")
         overflow = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
         assert overflow <= 2, f"{route} horizontal overflow: {overflow}px"
         page.screenshot(path=str(ARTIFACTS / f"mobile-{route.replace('.html', '')}.png"), full_page=False)
