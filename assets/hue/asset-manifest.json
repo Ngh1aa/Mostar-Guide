@@ -1,7 +1,7 @@
 {
   "project": "HUẾ — Between River & Citadel",
   "source_policy": "Wikimedia Commons provenance; no Mostar scene media",
-  "visual_veto_revision": "v5",
+  "visual_veto_revision": "v6-render-integration",
   "canvas": [
     1920,
     1080
@@ -122,39 +122,39 @@
       "sources": [
         "A01"
       ],
-      "changes": "1600×900 inset architectural portal; narrow edge feather; subtle threshold rules; transparent outer canvas",
+      "changes": "centered Ngọ Môn architectural portal; bright low-saturation sky keyed to alpha; restrained edge feather for cinematic layering",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "1c1742bc119fe1404c04dd1fc73b0b02a7683f4f76856a5a58ac97d3b7e788d7"
+      "sha256": "f5047c7cfc76e9da0d82fb35ece98352360933f68dd204f70c69f29f66303988"
     },
     {
       "path": "scenes/04-imperial-left.webp",
       "sources": [
         "A01"
       ],
-      "changes": "registered left half of one shared Ngọ Môn full-frame crop; centre-edge feather only; reconstructs a single scene with 05 before split motion",
+      "changes": "registered left half of shared Ngọ Môn crop; bright neutral sky keyed to alpha; centre-edge feather only",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "b7fe14acddb2bb239e40a12519bfc14b06ee99952b293b32d100528d02875f15"
+      "sha256": "13a2fbdc2c309458b374671a9c805421e24d1ddd94d2e56c280bd85bab6d0d4f"
     },
     {
       "path": "scenes/05-imperial-right.webp",
       "sources": [
         "A01"
       ],
-      "changes": "registered right half of one shared Ngọ Môn full-frame crop; centre-edge feather only; reconstructs a single scene with 04 before split motion",
+      "changes": "registered right half of shared Ngọ Môn crop; bright neutral sky keyed to alpha; centre-edge feather only",
       "size": [
         1920,
         1080
       ],
       "mode": "RGBA",
-      "sha256": "12fe5464547c5b583a9a952ac8f777ce73fba3e9f03d0e43191a0683f90b61d2"
+      "sha256": "25479338fba985582582d2de7370316fb7a3f7ad02cd935cf584c2cfb4e1e35a"
     },
     {
       "path": "scenes/06-river-transition.webp",
@@ -292,13 +292,13 @@
       "sources": [
         "DERIVED_SCENES"
       ],
-      "changes": "visual-veto contact sheet of seven scene outputs plus aligned 04+05 split-pair preview",
+      "changes": "render-integration contact sheet; seven scene outputs plus keyed 04+05 split-pair proof",
       "size": [
         1032,
         1376
       ],
       "mode": "RGB",
-      "sha256": "c83424d5db52013d5b7b0c90411585e4c3487bf25d8f8b7f496cf9baed2bc708"
+      "sha256": "61df2a1c239f214b178a434fc873b4ad6eb178c4e1bb695971cc08f9a8693f3d"
     }
   ]
 }
